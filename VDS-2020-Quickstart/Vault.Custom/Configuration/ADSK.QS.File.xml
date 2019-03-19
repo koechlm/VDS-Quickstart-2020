@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DocTypeData xmlns="">
+  <DocTypeInfo>
+    <DocName>Inventor</DocName>
+    <Path>$/Templates/Inventor</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>AutoCAD Mechanical</DocName>
+    <Path>$/Templates/Mechanical</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>Office</DocName>
+    <Path>$/Templates/Office</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>Electrical Drawing</DocName>
+    <Path>$/Templates/Electrical</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>Electrical Project</DocName>
+    <Path>$/Templates/Electrical/WDP</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>AutoCAD</DocName>
+    <Path>$/Templates/AutoCAD</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>AutoCAD Sheet Set</DocName>
+    <Path>$/Templates/AutoCAD/Sheet Set</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>Mechanical Sheet Set Drawing</DocName>
+    <Path>$/Templates/Mechanical/Sheet Set Drawing</Path>
+  </DocTypeInfo>
+</DocTypeData>
