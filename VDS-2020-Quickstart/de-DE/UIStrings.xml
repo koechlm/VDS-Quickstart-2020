@@ -149,8 +149,15 @@
   <!--<UIString ID="aim_description1">Description</UIString>-->
 
   <!--Inventor custom iProperties Displaynames for dynamic properties-->
-  <UIString ID="Part Type name">Sub-Type</UIString>
-  
+  <UIString ID="G_L">Länge (Zuschnitt)</UIString>
+  <UIString ID="PL">Länge (Zuschnitt)</UIString>
+  <UIString ID="Title_EN">Titel EN</UIString>
+  <UIString ID="Mass">Gewicht</UIString>
+  <UIString ID="Original">Entstanden aus</UIString>
+  <UIString ID="Replacement">Ersetzt durch</UIString>
+  <UIString ID="Dimensions">Abmessungen</UIString>
+  <UIString ID="Thickness">Blechstärke</UIString>
+
   <!--Vault Categories-->
   <UIString ID="CAT1">Konstruktion</UIString>
   <UIString ID="CAT2">Büro</UIString>
@@ -330,6 +337,124 @@
   <UIString ID="Adsk.Org.Pers.Link_03">Verknüpfung erstellen</UIString>
   <UIString ID="Adsk.Org.Pers.Link_04">Aktivieren um Verknüpfungen auf gewählte Elemente zu erstellen.</UIString>
   <UIString ID="Adsk.Org.Pers.Link_05">Wählen Sie einen Kundennamen aus dem Arbeitsbereich "Organisationen". Optional wählen Sie zusätzlich eine Kontaktperson. Nur Personen, die mit Organisationen verknüpft sind werden als Kontaktperson angezeigt.</UIString>
+  <UIString ID="Adsk.Org.Pers.Link_06">Auswahl Kunde aus Arbeitsbereich "Organisationen"</UIString>
+  <UIString ID="Adsk.Org.Pers.Link_07">Ordnen Sie die Person einer Organisation zu.</UIString>
   <!--Cascading Organisation/Person selection & link creation END-->
+
+  <!--ItemMaster Search and Item Tab START-->
+  <UIString ID="Adsk.QS.ItemSearch_00">Stammdaten</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_01">Mehrere Eigenschafen</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_02">Titel (Artikel, ECO)</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_03">Beschreibung (Artikel, ECO)</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_04">Nummer</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_05">Kategoriename</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_06">Stammdaten  (Suchergebnis)</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_07">Suche</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_08">Achtung: Das Ergebnis beruht auf einem unvollständigen Suchindex. Wenden Sie sich an den Administrator, wenn diese Meldung immer erscheint.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_09">Das Suchergebnis ist beschränkt auf die Seitengröße {0}; Gesamtzahl zutreffender Artikel: {1}. Verfeinern Sie die Suchkritieren für eine erneute Suche.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_10">Erweitern für Suchabfragen</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_11">Artikeldaten Kopieren</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_12">Kopierte Artikeldaten zu Dateieigenschaften</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_13">Halbzeug</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_14">Gekauft</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_15">Die aktuelle Datei existiert in Vault, ist aber für den angemeldeten Benutzer nicht zugänglich.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_16">Der dieser Datei zugewiesene Artikel existiert in Vault ist aber für den angemeldeten Benutzer nicht zugänglich. Verwenden Sie 'Aktualisieren', falls sich der Status des Artikels inzwischen geändert hat.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_17">Die aktuelle Datei ist in Vault nicht vorhanden. Weisen Sie der Datei nach dem Einchecken einen Artikel zu, um die Artikeleigenschaften hier an zu zeigen.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_18">Es ist kein Artikel zugewiesen. Weisen Sie der Datei einen Artikel zu, um die Artikeleigenschaften hier an zu zeigen.</UIString>
+  <!--<UIString ID="Adsk.QS.ItemSearch_19">'Artikeldaten Kopieren' ist deaktiviert, da die Datei bereits einem Artikel zugewiesen ist.</UIString>-->
+  <UIString ID="Adsk.QS.ItemSearch_20">Diese Datei ist bereits einem Artikel zugewiesen. Die Auswahl eines anderen Artikels wird 'Title' und 'Teilnummer' mit kopierten Werten überschreiben und wird beim Aktualisieren des Artikels neu zugeordnet.{0}{1}Wählen Sie 'Ja' um zu überschreiben, 'Nein' um ab zu brechen.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_21">Diese Datei ist bereits einem Artikel zugewiesen. Die Auswahl eines anderen Artikels wird 'Title' und 'Teilnummer' mit kopierten Werten überschreiben. Möchten Sie den Vorgang dennoch fortsetzen?</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_22">VDS Quickstart Configuration erwartet "Einheitlichen Arbeitsordner" für alle Clients. Kontaktieren Sie ihren Vault Administrator.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_23">Einheiten</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_24">Zuletzt aktualisert von</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_25">Letzte Aktualisierung</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_26">Eigenschaftsname</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_27">Eingenschaftswert</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_28">Artikel</UIString> <!--Zugewiesener Artikel-->
+  <UIString ID="Adsk.QS.ItemSearch_29">Eigenschaften</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_30">Verknüpfte Dateien</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_31">Datei, für angemeldeten Benutzer nicht zugänglich</UIString>
+  <!--ItemMaster Search and Item Tab END-->
+  
+  <!--Classification start-->
+  <UIString ID="Adsk.QS.ClassLevel_00">Segment</UIString>
+  <UIString ID="Adsk.QS.ClassLevel_01">Hauptgruppe</UIString>
+  <UIString ID="Adsk.QS.ClassLevel_02">Gruppe</UIString>
+  <UIString ID="Adsk.QS.ClassLevel_03">Untergruppe</UIString>
+  <UIString ID="Adsk.QS.Classification_00">Klasse</UIString>
+  <UIString ID="Adsk.QS.Classification_01">Merkmal</UIString>
+  <UIString ID="Adsk.QS.Classification_02">Wert</UIString>
+  <UIString ID="Adsk.QS.Classification_03">Klassifizierung</UIString>
+  <UIString ID="Adsk.QS.Classification_04">Klassenstruktur</UIString>
+  <UIString ID="Adsk.QS.Classification_05">Verfügbare Klassen</UIString>
+  <UIString ID="Adsk.QS.Classification_06">Aktive Klasse</UIString>
+  <UIString ID="Adsk.QS.Classification_07">Eigenschaften</UIString>
+  <UIString ID="Adsk.QS.Classification_08">Klasse Aktivieren</UIString>
+  <UIString ID="Adsk.QS.Classification_09">Klasse Entfernen</UIString>
+
+  <UIString ID="Adsk.QS.Classification_10">Die Klasse ist entweder nicht vorhanden oder nicht ein-eindeutig. Nur eindeutige Klassennamen werden verarbeitet.</UIString>
+  <UIString ID="Adsk.QS.Classification_11">Entfernen einer Klassifizierung löscht alle Merkmale und Werte der Klasse! {0}Möchten Sie wirklich die Klassifizierung aufheben?</UIString>
+  <UIString ID="Adsk.QS.Classification_12">Achtung: Das Ergebnis beruht auf einem unvollständigen Suchindex. Wenden Sie sich an den Administrator, wenn diese Meldung immer erscheint.</UIString>
+  <UIString ID="Adsk.QS.Classification_13">Der Benutzerdefinierte Arbeitsbereich 'Klassen' steht nicht zur Verfügung. Wenden Sie sich an ihren Administrator.</UIString>
+  <!--Classification end-->
+
+  <!--CatalogTermsTranslations-->
+  <UIString ID="ClassTerms_MNU10">Neuer Begriff...</UIString>
+  <UIString ID="ClassTerms_MNU11">Neuen Begriff erstellen</UIString>
+  <UIString ID="ClassTerms_MNU12">Begriff bearbeiten...</UIString>
+  <UIString ID="ClassTerms_MNU13">Vorhandenen Begriff bearbeiten</UIString>
+  <UIString ID="ClassTerms_00">Begriff</UIString>
+  <UIString ID="ClassTerms_01">Benennungs-Katalog</UIString>
+  <UIString ID="ClassTerms_02">Deutsch</UIString>
+  <UIString ID="ClassTerms_03">Englisch</UIString>
+  <UIString ID="ClassTerms_04">Französisch</UIString>
+  <UIString ID="ClassTerms_05">Italienisch</UIString>
+  <UIString ID="ClassTerms_06">Keine übereinstimmende Begriffe vorhanden.</UIString>
+  <UIString ID="ClassTerms_07">Klassifizierung</UIString>
+  <UIString ID="ClassTerms_08">Kategoriename</UIString>
+  <UIString ID="ClassTerms_09">Begriff DE</UIString>
+  <UIString ID="ClassTerms_10">Begriff EN</UIString>
+  <UIString ID="ClassTerms_11">Begriff FR</UIString>
+  <UIString ID="ClassTerms_12">Begriff IT</UIString>
+  <UIString ID="ClassTerms_13">Katalog...</UIString>
+  <UIString ID="ClassTerms_14">Filter</UIString>
+  <UIString ID="ClassTerms_15">Zusätzliche Sprachen</UIString>
+  <UIString ID="ClassTerms_16">Search text to match term definition, use "*" and/or add Languages to widen the scope</UIString>
+  <UIString ID="ClassTerms_BTN8">Suche</UIString>
+  <UIString ID="ClassTerms_BTN9">Begriff in Titel Feld übernehmen</UIString>
+  <UIString ID="ClassTerms_BTN10">Übernehmen</UIString>
+  <UIString ID="ClassTerms_TT00">Begriff(e) in Titel und Titel (EN, FR, IT) übernehmen.</UIString>
+  <UIString ID="ClassTerms_TT01">Suche auf Hierarchieebene begrenzen...</UIString>
+  <UIString ID="ClassTerms_TT02">Name = 'Begriff' wenn nicht anders angegeben</UIString>
+  <UIString ID="ClassTerms_TT03">Wird über Klassifizierung gefüllt</UIString>
+  <UIString ID="ClassTerms_TT04">Keine manuelle Eingabe zulässig; wählen sie eine Benennung aus dem Katalog</UIString>
+  <UIString ID="ClassTerms_TT05">Öffnet Benennungskatalog</UIString>
+  <UIString ID="ClassTerms_TT06">Verwenden sie '*' für gekürzte Begriffe</UIString>
+  <UIString ID="ClassTerms_TT07">Klassifizierung zurücksetzen</UIString>
+  <UIString ID="ClassTerms_MSG01">Sie setzen gerade die Klassifizierung zurück, wollen Sie fortfahren?"</UIString>
+  <UIString ID="ClassTerms_MSG02">Anzeige auf Seitengröße {0} von {1} möglichen begrenzt; grenzen Sie die Suche ein.</UIString>
+  <UIString ID="ClassTerms_MSG03">Keine übereinstimmenden Begriffe gefunden</UIString>
+  <!--CatalogTermsTranslations End-->
+  
+  <!--Document Structure Tab Extension-->
+  <UIString ID="ADSK-DocStructure_00">Dokumentstruktur</UIString>
+  <UIString ID="ADSK-DocStructure_01">Kopiere Dateiname in Zwischenablage</UIString>
+  <UIString ID="ADSK-DocStructure_02">Angegebene Datei '{0}' im Feld '{1}' konnte nicht gefunden werden.</UIString>
+  <!--Document Structure Tab Extension End-->
+
+  <!--AddPdfDsgnRepToQu Snippet-->
+  <UIString ID="ADSK-AddPdfDsgnRepToQu-MNU00">PDF Ansicht aktualisieren</UIString>
+  <!--AddPdfDsgnRepToQu Snippet End-->
+
+  <!--Item-File-Importer-->
+  <UIString ID="ADSK-ItemFileImport_00">xDMS</UIString>
+  <UIString ID="ADSK-ItemFileImport_01">Pfad zur Dateiablage nicht vorhanden.</UIString>
+  <UIString ID="ADSK-ItemFileImport_02">'Drag and Drop' Import von Artikel-Datei-Import-Tab</UIString>
+  <UIString ID="ADSK-ItemFileImport_03">Anhänge von Datei-Import-Tab ergänzt</UIString>
+  <UIString ID="ADSK-ItemFileImport_04">Es wurde mindestens eine CAD Datei gefiltert, verwenden sie die CAD Anwendung zum Hinzufügen, bevor diese angehängt wird.</UIString>
+  <UIString ID="ADSK-ItemFileImport_05">Ziehen sie Dateien auf das 'Upload' Symbol; Dateien werden importiert und als Anhang an diesen Artikel verknüpft.</UIString>
+  <UIString ID="ADSK-ItemFileImport_06">Datei-Import</UIString>
+  <UIString ID="ADSK-ItemFileImport_07">Ziehen Sie Datein zum Import/Anhang hierher.</UIString>
+  <!--Item-File-Importer de-->
   
 </UIStrings>

@@ -88,14 +88,87 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="ClassificationDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+            <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <TextBox 
+                            Text="{WPF:ValidatedBinding Value, StringFormat=N}"
+                            BorderThickness="0" />
+                    </ControlTemplate>
+                    <!--<ControlTemplate>
+                        <ComboBox ItemsSource="{Binding ListValues}"
+                                  Text="{WPF:ValidatedBinding Value, StringFormat=N}" IsEditable="True"
+                                  BorderThickness="0" />
+                    </ControlTemplate>-->
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                    <Setter Property="Foreground"
+                        Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static DataGrid.FocusBorderBrushKey}}" />
+                </Trigger>
+                <DataTrigger Binding="{Binding EnforceListValues}" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <ComboBox ItemsSource="{Binding ListValues}" Text="{WPF:ValidatedBinding Value}"
+                                    IsEditable="False" BorderThickness="0"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ListValues.Count}" Value="0">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBox Text="{Binding Value, StringFormat=N}" BorderThickness="0" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Typ}" Value="DateTime">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <DatePicker SelectedDate="{WPF:ValidatedBinding Value}" SelectedDateFormat="Short"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Typ}" Value="Bool">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <ComboBox Text="{WPF:ValidatedBinding Value}" IsEditable="True">
+                                    <ComboBoxItem Content="True" />
+                                    <ComboBoxItem Content="False" />
+                                </ComboBox>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ButtonGridStyle" TargetType="{x:Type Grid}">
+            <Setter Property="Margin" Value="0,15,2,5" />
+        </Style>
     </UserControl.Resources>
-    <Grid Margin="0,5,5,0">
+    <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="140"/>
-            <ColumnDefinition MinWidth="140"/>
+            <ColumnDefinition MinWidth="140" Width="4*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid ToolTip="{Binding UIString[LBL73], FallbackValue='General Properties'}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="5,0,0,0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="21"/>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="Auto" />
@@ -105,34 +178,40 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="120" />
-                <ColumnDefinition MinWidth="140" />
+                <ColumnDefinition MinWidth="140" MaxWidth="140" />
             </Grid.ColumnDefinitions>
-            <Label Content="{Binding UIString[LBL8], FallbackValue=Category}" Grid.Column="0" />
-            <TextBox Text="{Binding Prop[_XLTN_CATEGORY NAME].Value}" x:Name="Cat" Grid.Column="1" />
-            <Label Content="{Binding UIString[LBL19], FallbackValue=Name}" Grid.Column="0" Grid.Row="1" />
-            <TextBox Text="{Binding Prop[_XLTN_NAME].Value}" Grid.Column="1" Grid.Row="1" />
-            <Label Content="{Binding UIString[LBL4], FallbackValue=State}" Grid.Column="0" Grid.Row="2" />
-            <TextBox Text="{Binding Prop[_XLTN_STATE].Value}" Grid.Column="1" Grid.Row="2" />
-            <Label Content="{Binding UIString[LBL33], FallbackValue=Date Created}" Grid.Column="0" Grid.Row="3" />
-            <TextBox Text="{Binding Prop[_XLTN_DATE VERSION CREATED].Value}" Grid.Column="1" Grid.Row="3" />
-            <Label Content="{Binding UIString[LBL34], FallbackValue=Created By}" Grid.Column="0" Grid.Row="4"  />
-            <TextBox Text="{Binding Prop[_XLTN_CREATED BY].Value}" Grid.Column="1" Grid.Row="4"  />
-            <Label x:Name="lblComments" Content="{Binding UIString[LBL7], FallbackValue=Comments}" Grid.Row="5" Height="Auto" BorderThickness="1" />
-            <TextBox Grid.Row="5" Text="{Binding Prop[_XLTN_COMMENTS].Value}" x:Name="Comments" Grid.Column="1" VerticalScrollBarVisibility="Auto" MinHeight="50" MaxHeight="60" TextWrapping="Wrap" AcceptsReturn="True" Padding="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Height="Auto" BorderThickness="0,1,1,1" />
+            <Label Content="{Binding UIString[LBL8], FallbackValue=Category}" Grid.Column="0" Grid.Row="1" />
+            <TextBox Text="{Binding Prop[_XLTN_CATEGORY NAME].Value}" x:Name="Cat" Grid.Column="1" Grid.Row="1" />
+            <Label Content="{Binding UIString[LBL19], FallbackValue=Name}" Grid.Column="0" Grid.Row="2" />
+            <TextBox Text="{Binding Prop[_XLTN_NAME].Value}" Grid.Column="1" Grid.Row="2" />
+            <Label Content="{Binding UIString[LBL4], FallbackValue=State}" Grid.Column="0" Grid.Row="3" />
+            <TextBox Text="{Binding Prop[_XLTN_STATE].Value}" Grid.Column="1" Grid.Row="3" />
+            <Label Content="{Binding UIString[LBL33], FallbackValue=Date Created}" Grid.Column="0" Grid.Row="4" />
+            <TextBox Text="{Binding Prop[_XLTN_DATE VERSION CREATED].Value}" Grid.Column="1" Grid.Row="4" />
+            <Label Content="{Binding UIString[LBL34], FallbackValue=Created By}" Grid.Column="0" Grid.Row="5"  />
+            <TextBox Text="{Binding Prop[_XLTN_CREATED BY].Value}" Grid.Column="1" Grid.Row="5"  />
+            <Label x:Name="lblComments" Content="{Binding UIString[LBL7], FallbackValue=Comments}" Grid.Row="6" Height="Auto" BorderThickness="1" />
+            <TextBox Grid.Row="6" Text="{Binding Prop[_XLTN_COMMENTS].Value}" x:Name="Comments" Grid.Column="1" VerticalScrollBarVisibility="Auto" MinHeight="50" MaxHeight="60" TextWrapping="Wrap" AcceptsReturn="True" Padding="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Height="Auto" BorderThickness="0,1,1,1" />
+            <Label Content="{Binding UIString[LBL73], FallbackValue=System Properties}" Height="Auto" BorderThickness="0"/>
         </Grid>
-        <Grid Grid.Column="1" Margin="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-            <DataGrid x:Name="DSDynCatPropGrid" ToolTip="{Binding UIString[LBL63], FallbackValue='Category Properties'}"
+        <Grid Grid.Column="1" Margin="5,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="21"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="{Binding UIString[LBL63], FallbackValue=Category Properties}" BorderThickness="0" Height="Auto"/>
+            <DataGrid x:Name="DSDynCatPropGrid" ToolTip="{Binding UIString[LBL63], FallbackValue=Category Properties}"
 				ItemsSource="{Binding DynamicProperties}" 
 				AutoGenerateColumns="False" 
 				HeadersVisibility="Column"
 				ScrollViewer.CanContentScroll="True" 
 				HorizontalGridLinesBrush="WhiteSmoke" 
-				VerticalGridLinesBrush="WhiteSmoke" BorderBrush="Gray" VerticalAlignment="Top">
+				VerticalGridLinesBrush="WhiteSmoke" BorderBrush="#FFABADB3" Grid.Row="1">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" CellStyle="{StaticResource DynamicDataGridLabelStyle}" Width="140" IsReadOnly="True">
                         <DataGridTextColumn.HeaderTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DataContext.UIString[LBL64], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                                <TextBlock Text="{Binding DataContext.UIString[LBL64], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Height="15" />
                             </DataTemplate>
                         </DataGridTextColumn.HeaderTemplate>
                     </DataGridTextColumn>
@@ -145,6 +224,44 @@
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
+        </Grid>
+        <Grid x:Name="grdClassification" Width="{Binding ActualWidth, ElementName=grdMain, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=grdMain, Mode=OneWay}" Grid.ColumnSpan="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="21"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblActiveClass" Content="{Binding UIString[Adsk.QS.Classification_06], FallbackValue=Active Classification}" Height="24" Grid.Row="2" BorderThickness="1,1,0,0"/>
+            <TextBox x:Name="txtActiveClass" IsHitTestVisible="False" Height="24" Text="{Binding Prop[_XLTN_CLASS].Value}" Grid.Row="2" Grid.Column="1" BorderThickness="1,1,1,0" Margin="0"/>
+            <Label x:Name="lblClassProps" Content="{Binding UIString[Adsk.QS.Classification_07], FallbackValue=Class Properties}" Grid.Row="3" Height="Auto" BorderThickness="1,1,0,1"/>
+            <DataGrid x:Name="dtgrdClassProps" Grid.Row="3" AutoGenerateColumns="False" Grid.Column="1" SelectionUnit="Cell" HorizontalGridLinesBrush="#FFEEEEF2" VerticalGridLinesBrush="#FFE7E8EC" BorderThickness="1" Grid.ColumnSpan="3" BorderBrush="#FFABADB3">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="ClassPropName" Binding="{Binding Key, Mode=OneWay}" CellStyle="{StaticResource DynamicDataGridLabelStyle}" Width="Auto">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.Classification_01], FallbackValue=Property Name, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn x:Name="ClassPropValue" Binding="{Binding Value, Mode=OneWay}" CellStyle="{StaticResource ClassificationDataGridCellStyle}"  Width="*">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.Classification_02], FallbackValue=Property Value, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="{Binding UIString[Adsk.QS.Classification_03], FallbackValue='Classification'}" BorderThickness="0" Grid.ColumnSpan="2" Height="Auto"/>
+            <TextBox x:Name="txtClassificationStatus" Height="Auto" TextWrapping="Wrap" Background="#FFFFFFE1" BorderThickness="1" Padding="5,0,0,0" MinHeight="24" Grid.Row="1" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </UserControl>

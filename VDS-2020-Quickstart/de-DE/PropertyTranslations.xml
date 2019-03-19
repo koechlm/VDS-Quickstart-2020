@@ -11,7 +11,7 @@
   <PropertyTranslation Name="CATEGORY NAME">Kategoriename</PropertyTranslation>
   <PropertyTranslation Name="FILE NAME">Dateiname</PropertyTranslation>
   <PropertyTranslation Name="DUE DATE">Fälligkeitsdatum</PropertyTranslation>
-  <PropertyTranslation Name="TITLE_ITEM_CO">Titel (Artikel, F)</PropertyTranslation>
+  <PropertyTranslation Name="TITLE_ITEM_CO">Titel (Artikel, ECO)</PropertyTranslation>
   <PropertyTranslation Name="DESCRIPTION_ITEM_CO">Beschreibung (Artikel, F)</PropertyTranslation>
   <PropertyTranslation Name="CREATE DATE">Erstellungsdatum</PropertyTranslation>
   <PropertyTranslation Name="CREATED BY">Erstellt von</PropertyTranslation>
@@ -44,6 +44,31 @@
   <PropertyTranslation Name="FIRSTNAME">Vorname</PropertyTranslation>
   <PropertyTranslation Name="LASTNAME">Nachname</PropertyTranslation>
   <!--Quickstart 2018 end-->
-  
+
+  <!--Quickstart Extension Organisation-Person-Link start-->
+  <PropertyTranslation Name ="ORGANISATION">Organisation</PropertyTranslation>
+  <!--Quickstart Extensions end-->
+
+  <!--Quickstart Extension Classification start-->
+  <PropertyTranslation Name="SEGMENT">Segment</PropertyTranslation>
+  <PropertyTranslation Name="MAINGROUP">Hauptgruppe</PropertyTranslation>
+  <PropertyTranslation Name="GROUP">Gruppe</PropertyTranslation>
+  <PropertyTranslation Name="SUBGROUP">Untergruppe</PropertyTranslation>
+  <PropertyTranslation Name="CLASS">Klasse</PropertyTranslation>
+  <!--Quickstart Extension Classification end-->
+
+  <!--CatalogTermsTranslations-->
+  <!--Note the default "Term" is used as object name and varies according the language-->
+  <PropertyTranslation Name="TERM">Begriff DE</PropertyTranslation>
+  <PropertyTranslation Name="TERM-DE">Begriff DE</PropertyTranslation>
+  <PropertyTranslation Name="TERM-EN">Begriff EN</PropertyTranslation>
+  <PropertyTranslation Name="TERM-FR">Begriff FR</PropertyTranslation>
+  <PropertyTranslation Name="TERM-IT">Begriff IT</PropertyTranslation>
+  <!--Note the default "Term" is used as object name and varies according the language-->
+  <PropertyTranslation Name="TITLE-DE">Titel</PropertyTranslation>
+  <PropertyTranslation Name="TITLE-EN">Titel EN</PropertyTranslation>
+  <PropertyTranslation Name="TITLE-FR">Titel FR</PropertyTranslation>
+  <PropertyTranslation Name="TITLE-IT">Titel IT</PropertyTranslation>
+  <!--Classification & Terms-->
 </PropertyTranslations>
 

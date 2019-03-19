@@ -83,16 +83,32 @@
             <Setter Property="IsHitTestVisible" Value="False" />
             <Setter Property="Width" Value="0"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Name}" Value="MyPropName">
+                <DataTrigger Binding="{Binding Name}" Value="GEN-TITLE-NR">
                     <Setter Property="IsHitTestVisible" Value="True" />
                     <Setter Property="Width" Value="Auto"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
                                 <Button Content="{Binding DataContext.UIString[], FallbackValue=. . ., RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
-                                    Command="{Binding DataContext.PsCmd[], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" HorizontalAlignment="Right"
-                                    ToolTip="{Binding DataContext.UIString[], FallbackValue='No ToolTip set', RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
-                                    Grid.Column="1" Padding="5,1" Background="#FFDDDDDD" MinWidth="20"/>
+                                    Command="{Binding DataContext.PsCmd[mInitializeItemSearch -Context Part_Number], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                       CommandParameter="Part Number" HorizontalAlignment="Right"
+                                    ToolTip="{Binding DataContext.UIString[Adsk.QS.ItemSearch_10], FallbackValue='Expand Item Query Builder', RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    Grid.Column="1" Padding="5,1" Background="White" BorderThickness="0" MinWidth="20"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Name}" Value="DocNumber">
+                    <Setter Property="IsHitTestVisible" Value="True" />
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Button Content="{Binding DataContext.UIString[], FallbackValue=. . ., RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    Command="{Binding DataContext.PsCmd[mInitializeItemSearch -Context Part_Number], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                       CommandParameter="Part Number" HorizontalAlignment="Right"
+                                    ToolTip="{Binding DataContext.UIString[Adsk.QS.ItemSearch_10], FallbackValue='Expand Item Query Builder', RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    Grid.Column="1" Padding="5,1" Background="White" BorderThickness="0" MinWidth="20"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -187,6 +203,14 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="btnNewScStyle" TargetType="Image">
+            <Setter Property="Source" Value="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\Plus_disabled.ico"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsEnabled, ElementName=btnNewSc}" Value="True">
+                    <Setter Property="Source" Value="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\Plus.ico"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <Style x:Key="ProjectFavorites" TargetType="{x:Type Expander}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding EditMode}" Value="True">
@@ -234,14 +258,6 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        <Style x:Key="btnNewScStyle" TargetType="{x:Type Image}">
-            <Setter Property="Source" Value="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\Plus_disabled.ico"/>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsEnabled, ElementName=btnNewSc}" Value="True">
-                    <Setter Property="Source" Value="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\Plus.ico"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
     </WPF:DSWindow.Resources>
     <WPF:DSWindow.InputBindings>
         <KeyBinding Key="F1" Command="{Binding PsCmd[mHelp(200)]}"/>
@@ -259,8 +275,9 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <GroupBox x:Name="GroupFolder" Grid.ColumnSpan="2" Margin="-6,0,0,5" BorderThickness="0" Header="Folder" MaxWidth="700"
+        <GroupBox x:Name="GroupFolder" Grid.ColumnSpan="2" Margin="-10,0,0,5" BorderThickness="0" Header="Folder" MaxWidth="700"
                   Visibility="{Binding CreateMode, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Column="1">
             <WrapPanel x:Name="BreadCrumb"
                        ItemWidth="165" Margin="1,0,0,0" >
@@ -275,7 +292,7 @@
 
         </GroupBox>
         <Grid x:Name="grdGeneralProps"
-        	ToolTip="{Binding UIString[LBL73], FallbackValue=General Properties}" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" MaxWidth="680" Margin="0,10,0,0">
+        	ToolTip="{Binding UIString[LBL73], FallbackValue=General Properties}" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="24" />
                 <RowDefinition Height="Auto" />
@@ -283,9 +300,9 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="140" />
-                <ColumnDefinition MaxWidth="220" Width="182" />
+                <ColumnDefinition Width="91*" />
                 <ColumnDefinition Width="140"/>
-                <ColumnDefinition MaxWidth="220" MinWidth="180"/>
+                <ColumnDefinition MinWidth="180" Width="122*"/>
             </Grid.ColumnDefinitions>
             <Label Content="{Binding UIString[LBL8], FallbackValue=Category}"
         		Grid.Row="0"
@@ -319,11 +336,11 @@
         		Style="{StaticResource NumSchmCtrlStyle}" BorderThickness="0,1,1,1" />
         </Grid>
         <TabControl x:Name="tabCtrlMain" MinHeight="80" Grid.Column="1" Grid.Row="2"
-        	Grid.ColumnSpan="2" Margin="6,5,0,0" MaxWidth="700">
-            <TabItem x:Name="tabProperties" Header="{Binding UIString[LBL63], FallbackValue=Category Properties}">
-                <Grid x:Name="DSDynCatPropGrid"
+        	Grid.ColumnSpan="2" Margin="0,5,0,0" MaxWidth="700">
+            <TabItem x:Name="tabProperties" Header="{Binding UIString[LBL63], FallbackValue=Category Properties}" >
+                <Grid x:Name="DSDynCatPropGrid" MinHeight="80" MinWidth="694"
         			ToolTip="{Binding UIString[LBL63], FallbackValue=Category Properties}">
-                    <DataGrid x:Name="DSDynamicCategoryProperties"
+                    <DataGrid x:Name="DSDynamicCategoryProperties" MinHeight="260"
         				AutoGenerateColumns="False"
         				HeadersVisibility="Column"
         				ItemsSource="{Binding DynamicProperties}"
@@ -351,11 +368,87 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.HeaderTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn CellStyle="{StaticResource DynamicDataGridBtnCellStyle}"/>
+                            <DataGridTextColumn CellStyle="{StaticResource DynamicDataGridBtnCellStyle}" MinWidth="25" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <TabItem x:Name="tabItemProperties" Header="{Binding UIString[Adsk.QS.ItemSearch_28],FallbackValue='Assigned Item'}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid x:Name="grdAssignedItemMain" Background="#FFF0F0F0" Height="{Binding ActualHeight, ElementName=DSDynCatPropGrid, Mode=OneWay}" MinWidth="694">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="grdStatus">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="btnAssignedItemRefresh" Command="{Binding PsCmd[mGetItemByFileFromVault]}">
+                            <Image Source="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\Refresh_32.ico" StretchDirection="DownOnly"/>
+                        </Button>
+                        <TextBox x:Name="txtAssignedItemStatus" Grid.Column="1" Height="Auto" TextWrapping="Wrap" Background="#FFFFFFE1" BorderThickness="1" Padding="5,0,0,0" MinHeight="24"/>
+                    </Grid>
+                    <Grid x:Name="grdItemSysProps" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblRevision" Content="{Binding UIString[LBL12], FallbackValue=Revision}"/>
+                        <TextBox x:Name="txtItemRevision" Grid.Column="1" IsReadOnly="True" Background="White"/>
+                        <Label x:Name="lblItemNumber" Content="{Binding UIString[LBL31], FallbackValue=Number}" Grid.Row="1"/>
+                        <TextBox x:Name="txtItemNumber" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" IsReadOnly="True" Background="White"/>
+                        <Label x:Name="lblItemTitle" Content="{Binding UIString[Adsk.QS.ItemSearch_02], FallbackValue=Title}" Grid.Row="2"/>
+                        <TextBox x:Name="txtItemTitle" Grid.Column="1" Grid.Row="2" IsReadOnly="True" Background="White"/>
+                        <Label x:Name="lblItemDescription" Content="{Binding UIString[Adsk.QS.ItemSearch_03], FallbackValue=Description}" Grid.Row="3"/>
+                        <TextBox x:Name="txtItemDescription" Grid.Column="1" Grid.Row="3" IsReadOnly="True" Background="White"/>
+                        <Label x:Name="lblItemUnits" Content="{Binding UIString[Adsk.QS.ItemSearch_23], FallbackValue=Units}"  Grid.Row="4" BorderThickness="1"/>
+                        <TextBox x:Name="txtItemUnits" Grid.Column="1" Grid.Row="4" BorderThickness="0,1,1,1" IsReadOnly="True" Background="White"/>
+                        <Border x:Name="brdItemThumbnail" Grid.Column="2" Grid.RowSpan="4" BorderThickness="1" BorderBrush="#FFABADB3" Margin="5,0" Height="96" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}">
+                            <Image x:Name="ItemThumbnail"/>
+                        </Border>
+                        <Label x:Name="lblItemCategory" Content="{Binding UIString[Adsk.QS.ItemSearch_05], FallbackValue=Category Name}" BorderThickness="1,1,1,0" Grid.Column="3"/>
+                        <TextBox x:Name="txtItemCategory" Grid.Column="4" IsReadOnly="True" Background="White" />
+                        <Label x:Name="lblItemLfcState" Content="{Binding UIString[LBL14], FallbackValue=Lifecycle State}" Grid.Column="3" Grid.Row="1"/>
+                        <TextBox x:Name="txtItemLfcState" Grid.Column="4" Grid.Row="1" IsReadOnly="True" Background="White"/>
+                        <Label x:Name="lblItemLastUpdatedBy" Content="{Binding UIString[Adsk.QS.ItemSearch_24], FallbackValue=Last Updated By}" Grid.Column="3" Grid.Row="2"/>
+                        <TextBox x:Name="txtItemLastUpdatedBy" Grid.Column="4" Grid.Row="2" IsReadOnly="True" Background="White"/>
+                        <Label x:Name="lblItemLastUpdatedDate" Content="{Binding UIString[Adsk.QS.ItemSearch_25], FallbackValue='Last Updated Date                             '}" Grid.Column="3" Grid.Row="3" BorderThickness="1"/>
+                        <TextBox x:Name="txtItemLastUpdatedDate" Grid.Column="4" Grid.Row="3" BorderThickness="0,1,1,1" IsReadOnly="True" Background="White"/>
+                    </Grid>
+                    <DataGrid x:Name="dtgrdItemProps" IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" Grid.Row="2" HorizontalGridLinesBrush="#FFABADB3" VerticalGridLinesBrush="#FFABADB3" Margin="0,10,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="ItemPropName" Binding="{Binding Key}" Width="Auto">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding UIString[Adsk.QS.ItemSearch_26], FallbackValue='Property Name'}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="ItemPropValue" Binding="{Binding Value}" Width="*">
+                                <DataGridTextColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding UIString[Adsk.QS.ItemSearch_27], FallbackValue='Property Value'}"/>
+                                    </DataTemplate>
+                                </DataGridTextColumn.HeaderTemplate>
+                            </DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
         </TabControl>
         <Expander x:Name="expFilePath" Header="{Binding UIString[LBL6]}" Grid.ColumnSpan="2"
 			ToolTip="{Binding UIString[MSDCE_TT05]}" Style="{StaticResource ExpanderStyle}" Grid.Row="3" Grid.Column="1" Margin="0,10,0,0">
@@ -385,19 +478,19 @@
                 <ColumnDefinition Width="20" />
                 <ColumnDefinition Width="80" />
             </Grid.ColumnDefinitions>
-            <Button Command="{Binding CloseWindowCommand, ElementName=AutoCADWindow}"
+            <Button x:Name="btnOK" Command="{Binding CloseWindowCommand, ElementName=AutoCADWindow}"
                     IsEnabled="{Binding Properties.IsValid}" Grid.Column="2"
                     Width="80" HorizontalAlignment="Right" VerticalAlignment="Center"
                     ToolTipService.ShowOnDisabled="True" ToolTip="{Binding UIString[LBL35], FallbackValue=Cancel}"
                     Content="{Binding UIString[BTN1], FallbackValue=OK}" IsDefault="True" Height="24" />
-            <Button Grid.Column="4" Width="80" HorizontalAlignment="Right"
+            <Button x:Name="btnCancel" Grid.Column="4" Width="80" HorizontalAlignment="Right"
                     VerticalAlignment="Center" Command="{Binding CancelWindowCommand, ElementName=AutoCADWindow}"
                     IsCancel="true" Content="{Binding UIString[BTN2], FallbackValue=Cancel}" Height="24" />
             <Button x:Name="btnHelp" Content="{Binding UIString[MSDCE_BTN1], FallbackValue=Help}" 
                     Command="{Binding PsCmd[mHelp(200)]}" ToolTip="F1" Height="24" />
         </Grid>
-        <Expander x:Name="expShortCutPane" Header="" ExpandDirection="Left" IsExpanded="True"
-                Style="{StaticResource ProjectFavorites}" ToolTip="{Binding UIString[MSDCE_TT24]}" Background="#FFF0F0F0" Grid.RowSpan="5">
+        <Expander x:Name="expShortCutPane" Header="" Grid.RowSpan="5" ExpandDirection="Left" IsExpanded="True"
+        	Style="{StaticResource ProjectFavorites}" ToolTip="{Binding UIString[MSDCE_TT24]}" Background="#FFF0F0F0">
             <GroupBox x:Name="GroupShortcuts" Header="{Binding UIString[MSDCE_LBL88], FallbackValue=Shortcuts}" BorderThickness="0">
                 <Grid Background="#FFF0F0F0" Width="180">
                     <Grid.ColumnDefinitions>
@@ -409,22 +502,21 @@
                         <RowDefinition/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBox x:Name="txtNewShortCut1" Grid.Row="0" ToolTip="{Binding UIString[MSDCE_TT20]}" BorderThickness="1" />
-                    <Button x:Name="btnNewSc1" Grid.Column="1" Grid.Row="0" Width="24" Height="24" FontFamily="Wingdings"
-                            FontSize="14" Foreground="#FF2FAE09" VerticalContentAlignment="Bottom" Margin="2,2,0,2" FontWeight="Bold" Cursor="Hand"
-                            ToolTipService.ShowOnDisabled="True" ToolTip="{Binding UIString[MSDCE_TT20]}"
-                            Style="{StaticResource btnScEnabled}"
-                            Command="{Binding PsCmd[mAddSc]}">
+                    <TextBox x:Name="txtNewShortCut" Grid.Row="0" ToolTip="{Binding UIString[MSDCE_TT20]}" BorderThickness="1" />
+                    <Button x:Name="btnNewSc" Grid.Column="1" Grid.Row="0" Width="24" Height="24" FontFamily="Wingdings"
+                        FontSize="14" Foreground="#FF2FAE09" VerticalContentAlignment="Bottom" Margin="2,2,0,2" FontWeight="Bold" Cursor="Hand"
+                        ToolTipService.ShowOnDisabled="True" ToolTip="{Binding UIString[MSDCE_TT20]}"
+                        Style="{StaticResource btnScEnabled}"
+                        Command="{Binding PsCmd[mAddSc]}">
                         <Image x:Name="btnNewScImg" Style="{StaticResource btnNewScStyle}"/>
                     </Button>
-                    <ListBox x:Name="lstBoxShortCuts1" Grid.Row="1" MinWidth="180" Margin="0" ItemsSource="{Binding PsVal[mReadShortCuts]}" ToolTip="{Binding UIString[MSDCE_TT23]}"  
-                            MaxWidth="300" MaxHeight="500" Grid.ColumnSpan="2" DisplayMemberPath="Key" SelectedValuePath="Key">
+                    <ListBox x:Name="lstBoxShortCuts" Grid.Row="1" MinWidth="180" Margin="0" ItemsSource="{Binding PsVal[mReadShortCuts]}" ToolTip="{Binding UIString[MSDCE_TT23]}"  
+                        MaxWidth="300" MaxHeight="500" Grid.ColumnSpan="2" DisplayMemberPath="Key" SelectedValuePath="Key">
                         <ListBox.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="{Binding UIString[MSDCE_BTN3], FallbackValue=Activate}" Command="{Binding PsCmd[mRemoveSc]}">
                                     <MenuItem.Icon>
                                         <Image Source="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\cancel.ico" />
-
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </ContextMenu>
@@ -432,6 +524,132 @@
                     </ListBox>
                 </Grid>
             </GroupBox>
+        </Expander>
+        <Expander x:Name="expItemMasterSearch" Grid.Column="3" Header="" Grid.RowSpan="5" ExpandDirection="Right" Visibility="Collapsed" IsExpanded="False">
+            <Grid x:Name="grdItemSearchMain" Background="#FFF0F0F0" MaxHeight="470" Margin="10,0,0,0" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="217*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="grdItemSearchHeader" Grid.ColumnSpan="4">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF055599" Offset="1"/>
+                            <GradientStop Color="#FF1E92F1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Image HorizontalAlignment="Left" Source="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\ItemMaster.png" Width="16" Margin="5,0,0,0"/>
+                    <TextBlock x:Name="lblItemMaster" TextWrapping="Wrap" Text="{Binding UIString[Adsk.QS.ItemSearch_00], FallbackValue=Item Master}" Margin="21,0,0,0" FontSize="14" Padding="10,5,0,0" Foreground="White" VerticalAlignment="Center" Height="27">
+                        <TextBlock.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF055599" Offset="1"/>
+                                <GradientStop Color="#FF1E92F1"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Background>
+                    </TextBlock>
+                </Grid>
+                <Label x:Name="lblItemSearchMultipleProp" Content="{Binding UIString[Adsk.QS.ItemSearch_01], FallbackValue=Multiple Properties}" Height="Auto" Grid.Row="1" BorderThickness="1,1,1,0"/>
+                <Label x:Name="lblItemSearchTitle" Content="{Binding UIString[Adsk.QS.ItemSearch_02], FallbackValue=Title (Item\, ECO)}" Grid.Row="2" Height="Auto" BorderThickness="1,1,1,0"/>
+                <TextBox x:Name="txtItemSearchMultipleProp" Grid.Column="1" Height="Auto" Grid.Row="1" TextWrapping="Wrap" BorderThickness="0,1,0,0"/>
+                <TextBox x:Name="txtItemSearchTitle" Grid.Column="1" Height="Auto" Grid.Row="2" TextWrapping="Wrap" BorderThickness="0,1,0,0"/>
+                <ComboBox x:Name="cmbItemSearchCategory" ItemsSource="{Binding PsList[mGetItemCategories], Mode=OneTime}" Grid.Column="1" Height="Auto" Grid.Row="3" BorderThickness="0,1" IsEditable="True"/>
+                <TextBox x:Name="txtItemSearchNumber" Grid.Column="3" Height="Auto" TextWrapping="Wrap" Grid.Row="1"/>
+                <TextBox x:Name="txtItemSearchDescription" Grid.Column="3" Height="Auto" Grid.Row="2" TextWrapping="Wrap"/>
+                <ComboBox x:Name="cmbItemSearchMaterial" Grid.Column="3" Height="Auto" Grid.Row="3" BorderThickness="0,1,1,1" IsEditable="True"/>
+                <Grid x:Name="grdItemSearchButtons" Grid.Row="4" Grid.ColumnSpan="4" Margin="0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnItemSearch" Command="{Binding PsCmd[mGetItemsBySearchCriterias]}" HorizontalAlignment="Left" Height="24" Background="#FFE8E8F0" Margin="0,0,10,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\VaultSearchExec.ico" Width="24" Height="24" StretchDirection="DownOnly"/>
+                            <Label Content="{Binding UIString[Adsk.QS.ItemSearch_07], FallbackValue=Search}" Grid.Column="1" BorderThickness="0"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="btnItemSearchClear" Command="{Binding PsCmd[mItemSearchClear]}" HorizontalAlignment="Left" Height="24" Background="#FFE8E8F0" Grid.Column="1" Margin="0,0,10,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\VaultSearchClear.ico" Width="24" Height="24" StretchDirection="DownOnly"/>
+                            <Label Content="{Binding UIString[Adsk.QS.ItemSearch_], FallbackValue=Clear}" Grid.Column="1" BorderThickness="0"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+                <Label x:Name="lblItemSearchCategory" Content="{Binding UIString[Adsk.QS.ItemSearch_05], FallbackValue=Category Name}" Grid.Row="3" Height="Auto" BorderThickness="1"/>
+                <Label x:Name="lblItemSearchNumber" Content="{Binding UIString[LBL31], FallbackValue=Number}" Grid.Column="2" Grid.Row="1" Height="Auto"/>
+                <Label x:Name="lblItemSearchDescription" Content="{Binding UIString[Adsk.QS.ItemSearch_03], FallbackValue=Description}" Grid.Column="2" Grid.Row="2" Height="Auto"/>
+                <Label x:Name="lblItemSearchMaterial" Content="{Binding UIString[LBL75], FallbackValue=Material}" Grid.Column="2" Grid.Row="3" Height="Auto" BorderThickness="1"/>
+                <TextBox x:Name="txtItemSearchResultMsg" Grid.ColumnSpan="4" Grid.Row="5" TextWrapping="Wrap" Text="" Background="#FFFFFFE1" Height="24" BorderThickness="1,1,1,0" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
+                <DataGrid x:Name="ItemsFound" AutoGenerateColumns="False" Grid.ColumnSpan="4" Grid.Row="6" Background="White" HorizontalGridLinesBrush="#FFE7E8EC" 
+                    VerticalGridLinesBrush="#FFE7E8EC" AlternatingRowBackground="#FFE1F1FB" SelectionMode="Single" CanUserResizeRows="False" IsReadOnly="True" MaxHeight="{Binding MaxHeight, ElementName=DSDynCatPropGrid}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="ItemSearchNumber" Binding="{Binding Item}" Width="*">
+                            <DataGridTextColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.ItemSearch_04], FallbackValue=Number, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                </DataTemplate>
+                            </DataGridTextColumn.HeaderTemplate>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn x:Name="ItemSearchTitle" Binding="{Binding Title}" Width="*">
+                            <DataGridTextColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.ItemSearch_02], FallbackValue=Title, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                </DataTemplate>
+                            </DataGridTextColumn.HeaderTemplate>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn x:Name="ItemSearchDescription" Binding="{Binding Description}" Width="*">
+                            <DataGridTextColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.ItemSearch_03], FallbackValue=Description, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                </DataTemplate>
+                            </DataGridTextColumn.HeaderTemplate>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn x:Name="ItemSearchMaterial" Binding="{Binding Material}" Width="*">
+                            <DataGridTextColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DataContext.UIString[LBL75], FallbackValue=Material, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                </DataTemplate>
+                            </DataGridTextColumn.HeaderTemplate>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn x:Name="ItemSearchCategory" Binding="{Binding Category}" Width="*">
+                            <DataGridTextColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.ItemSearch_05], FallbackValue=Category, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                </DataTemplate>
+                            </DataGridTextColumn.HeaderTemplate>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="btnItemDataCopy" Grid.Row="7" Margin="0,10" HorizontalAlignment="Center" IsEnabled="False" Command="{Binding PsCmd[mCopyItemData]}" Grid.ColumnSpan="4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\CopyIcon.ico" Width="24" Height="24" StretchDirection="DownOnly"/>
+                        <Label x:Name="lblBtnItemDataCopy" Content="{Binding UIString[Adsk.QS.ItemSearch_11], FallbackValue=Copy Item Data}" ToolTip="{Binding UIString[Adsk.QS.ItemSearch_12], FallbackValue=Copy metadata to file property}" Grid.Column="1" BorderThickness="0"/>
+                    </Grid>
+                </Button>
+            </Grid>
         </Expander>
     </Grid>
 </WPF:DSWindow>

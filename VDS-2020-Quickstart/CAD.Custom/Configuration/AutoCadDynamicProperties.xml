@@ -18,7 +18,7 @@
     <DynamicProperty>Sheet</DynamicProperty>
     <DynamicProperty>Scale</DynamicProperty>
     <DynamicProperty>Source File</DynamicProperty>
-    <DynamicProperty>Engr Approved Date</DynamicProperty>
+    <DynamicProperty>Project</DynamicProperty>
   </DynamicPropertiesCategory>
   <DynamicPropertiesCategory Category="Factory Layout">
     <DynamicProperty>Title</DynamicProperty>
@@ -26,5 +26,18 @@
     <DynamicProperty>Part Number</DynamicProperty>
     <DynamicProperty>Project</DynamicProperty>
     <DynamicProperty>Project Type</DynamicProperty>
+  </DynamicPropertiesCategory>
+  <DynamicPropertiesCategory Category="Zeichnung AutoCAD">
+    <DynamicProperty>Size/Format</DynamicProperty>
+    <DynamicProperty>Sheet</DynamicProperty>
+    <DynamicProperty>Mass</DynamicProperty>
+    <DynamicProperty>Replacement</DynamicProperty>
+    <DynamicProperty>Original</DynamicProperty>
+    <DynamicProperty>Scale</DynamicProperty>
+    <DynamicProperty>Description</DynamicProperty>
+    <DynamicProperty>Title</DynamicProperty>
+    <DynamicProperty>Material</DynamicProperty>
+    <DynamicProperty>Part Number</DynamicProperty>
+    <DynamicProperty>Material/Dimensions</DynamicProperty>
   </DynamicPropertiesCategory>
 </DynamicsProperties>

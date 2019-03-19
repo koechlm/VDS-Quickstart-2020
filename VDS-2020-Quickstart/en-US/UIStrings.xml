@@ -150,8 +150,10 @@
   <!--<UIString ID="aim_description1">Description</UIString>-->
 
   <!--Inventor custom iProperties Displaynames for dynamic properties-->
-  <UIString ID="Part Type name">Sub-Type</UIString>
-  
+  <UIString ID="G_L">Cut Length</UIString>
+  <UIString ID="PL">Cut Length</UIString>
+
+
   <!--Vault Categories-->
   <UIString ID="CAT1">Engineering</UIString>
   <UIString ID="CAT2">Office</UIString>
@@ -189,7 +191,7 @@
   <!--Quickstart Inventor Dialog-->
   <UIString ID="MSDCE_MSG00">Missing Model View! Your system is set to save IPN/IDW/DWG depending on model's name and location. Either add a model or change the Vault option to generate numbers for IPN/IDW/DWG.</UIString>
   <!--Quickstart Inventor Dialog end-->
-  
+
   <!--Quickstart Functional Dialogs (FG, DA, TP, CH)-->
   <UIString ID="MSDCE_BOMType_00">Phantom</UIString>
   <UIString ID="MSDCE_BOMType_01">Phantom-Assembly</UIString>
@@ -323,14 +325,132 @@
   <!--Insert CAD Copy-->
   <UIString ID="ADSK-InsertInvCopy_00">Insert CAD: Component Copy</UIString>
   <!--Insert CAD Copy-->
-  
+
   <!--Cascading Organisation/Person selection & link creation-->
   <UIString ID="Adsk.Org.Pers.Link_00">Contact</UIString>
   <UIString ID="Adsk.Org.Pers.Link_01">Contacts</UIString>
   <UIString ID="Adsk.Org.Pers.Link_02">Primary</UIString>
   <UIString ID="Adsk.Org.Pers.Link_03">Create Link</UIString>
   <UIString ID="Adsk.Org.Pers.Link_04">Enable to create links to any selected item on project creation.</UIString>
-  <UIString ID="Adsk.Org.Pers.Link_05">Select customer name from "Organisation" Workspace. Optionally select contact name also. Only persona linked to organisations are listed as contact name.</UIString>
+  <UIString ID="Adsk.Org.Pers.Link_05">Select customer name from "Organisations" Workspace. Optionally select contact name also. Only contacts linked to organisations are listed as contact name.</UIString>
+  <UIString ID="Adsk.Org.Pers.Link_06">Select Customer and Contact from "Organisations" Workspace</UIString>
+  <UIString ID="Adsk.Org.Pers.Link_07">Assign Person to existing Organisation</UIString>
   <!--Cascading Organisation/Person selection & link creation END-->
+
+  <!--ItemMaster Search and Item Tab START-->
+  <UIString ID="Adsk.QS.ItemSearch_00">Item Master</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_01">Multiple Properties</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_02">Title (Item,CO)</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_03">Description (Item,CO)</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_04">Number</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_05">Category Name</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_06">Item Master  (Search Results)</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_07">Search</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_08">Attention: The result is based on an incomplete index! Contact your Administrator, if you continue seeing this message.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_09">Search result is limited to page size {0}; Total number of items found: {1}. Refine your search criterias and search again.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_10">Expand Item Query Builder for item lookup and data copy.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_11">Copy Item Data</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_12">Copy meta data to file properties</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_13">Semi finished</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_14">Purchased</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_15">The current file exists in Vault but is not accessible for the current login user.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_16">The item assigned to the opened file exists in Vault but is not accessible for the current login user. Hit Refresh, if the status of the item changed.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_17">The current file doesn't exist in Vault. Check-in first and assign an item to display metadata in this tab.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_18">No Item is currently assigned. Assign an item in Vault Explorer's Item Master to display metadata in this tab.</UIString>
+  <!--<UIString ID="Adsk.QS.ItemSearch_19">'Copy Item Data' is disabled because this file is already assigned to an item!</UIString>-->
+  <UIString ID="Adsk.QS.ItemSearch_20">This file is already assigned to an item. Selecting another item will overwrite Title and Part Number values and re-assign this file to the selected item on next item update.{0}{1}Select 'Yes' to overwrite, select 'No' to cancel.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_21">This file is already assigned to an item. However, do you want to overwrite Part Number and Title with the selected item's data?</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_22">VDS Quickstart Configuration expects 'Enforced Working Folder' to display 'Assigned Item' data. Contact your Vault Administrator.</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_23">Units</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_24">Last Updated By</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_25">Last Updated</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_26">Property Name</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_27">Property Value</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_28">Assigned Item</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_29">Properties</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_30">Associated Files</UIString>
+  <UIString ID="Adsk.QS.ItemSearch_31">File not accessible to current user</UIString>
+  <!--ItemMaster Search and Item Tab END-->
+
+  <!--Classification start-->
+  <UIString ID="Adsk.QS.ClassLevel_00">Segment</UIString>
+  <UIString ID="Adsk.QS.ClassLevel_01">Main Group</UIString>
+  <UIString ID="Adsk.QS.ClassLevel_02">Group</UIString>
+  <UIString ID="Adsk.QS.ClassLevel_03">Sub Group</UIString>
+  <UIString ID="Adsk.QS.Classification_00">Class</UIString>
+  <UIString ID="Adsk.QS.Classification_01">Attribute</UIString>
+  <UIString ID="Adsk.QS.Classification_02">Value</UIString>
+  <UIString ID="Adsk.QS.Classification_03">Classification</UIString>
+  <UIString ID="Adsk.QS.Classification_04">Class-Hierarchy</UIString>
+  <UIString ID="Adsk.QS.Classification_05">Available Classes</UIString>
+  <UIString ID="Adsk.QS.Classification_06">Active Class</UIString>
+  <UIString ID="Adsk.QS.Classification_07">Properties</UIString>
+  <UIString ID="Adsk.QS.Classification_08">Activate Class</UIString>
+  <UIString ID="Adsk.QS.Classification_09">Remove Class</UIString>
+
+  <UIString ID="Adsk.QS.Classification_10">The class doesn't exist or multiple classes are equally named.Only unique class names are processes.</UIString>
+  <UIString ID="Adsk.QS.Classification_11">Removal of class will delete all attributes and values of this assignment. {0}Do you really want to remove the classificatoin?</UIString>
+  <UIString ID="Adsk.QS.Classification_12">Attention: The result is based on an incomplete index! Contact your Administrator, if you continue seeing this message.</UIString>
+  <UIString ID="Adsk.QS.Classification_13">The custom workspace 'Classes' is not available. Contact your Administrator.</UIString>
+  <!--Classification end-->
+
+  <!--CatalogTermsTranslations-->
+  <UIString ID="ClassTerms_MNU10">New Term...</UIString>
+  <UIString ID="ClassTerms_MNU11">Create new term</UIString>
+  <UIString ID="ClassTerms_MNU12">Edit Term...</UIString>
+  <UIString ID="ClassTerms_MNU13">Edit existing term</UIString>
+  <UIString ID="ClassTerms_00">Term</UIString>
+  <UIString ID="ClassTerms_01">Terms Catalog</UIString>
+  <UIString ID="ClassTerms_02">German</UIString>
+  <UIString ID="ClassTerms_03">English</UIString>
+  <UIString ID="ClassTerms_04">French</UIString>
+  <UIString ID="ClassTerms_05">Italian</UIString>
+  <UIString ID="ClassTerms_06">No matching term(s) found.</UIString>
+  <UIString ID="ClassTerms_07">Classification</UIString>
+  <UIString ID="ClassTerms_08">Category Name</UIString>
+  <UIString ID="ClassTerms_09">Term DE</UIString>
+  <UIString ID="ClassTerms_10">Term EN</UIString>
+  <UIString ID="ClassTerms_11">Term FR</UIString>
+  <UIString ID="ClassTerms_12">Term IT</UIString>
+  <UIString ID="ClassTerms_13">Catalog...</UIString>
+  <UIString ID="ClassTerms_14">Filter</UIString>
+  <UIString ID="ClassTerms_15">Additional Languages</UIString>
+  <UIString ID="ClassTerms_16">Search text to match term definition, use "*" and/or add Languages to widen the scope</UIString>
+  <UIString ID="ClassTerms_BTN8">Search</UIString>
+  <UIString ID="ClassTerms_BTN9">Inherit Term to Title</UIString>
+  <UIString ID="ClassTerms_BTN10">Inherit</UIString>
+  <UIString ID="ClassTerms_TT00">Inherit Term(s) to Title DE (EN, FR, IT)</UIString>
+  <UIString ID="ClassTerms_TT01">Limit search to hierarchy level</UIString>
+  <UIString ID="ClassTerms_TT02">Name = 'TERM EN' if not typed manually</UIString>
+  <UIString ID="ClassTerms_TT03">Assigned by classification</UIString>
+  <UIString ID="ClassTerms_TT04">No hand typed terms allowed; select available term from catalog</UIString>
+  <UIString ID="ClassTerms_TT05">Activates catalog of terms</UIString>
+  <UIString ID="ClassTerms_TT06">Apply '*' for partial terms</UIString>
+  <UIString ID="ClassTerms_TT07">Resets classification</UIString>
+  <UIString ID="ClassTerms_MSG01">You are going to change the selected classification, are you sure?"</UIString>
+  <UIString ID="ClassTerms_MSG02">Search result displays {0} out of {1}; refine your search.</UIString>
+  <UIString ID="ClassTerms_MSG03">No matching terms found</UIString>
+  <!--CatalogTermsTranslations End-->
+  
+  <!--Document Structure Tab Extension-->
+  <UIString ID="ADSK-DocStructure_00">File Structure</UIString>
+  <UIString ID="ADSK-DocStructure_01">Copy file name to clipboard</UIString>
+  <UIString ID="ADSK-DocStructure_02">Designated file '{0}' in property '{1}' not found.</UIString>
+  <!--Document Structure Tab Extension End-->
+
+  <!--AddPdfDsgnRepToQu Snippet-->
+  <UIString ID="ADSK-AddPdfDsgnRepToQu-MNU00">Update PDF View</UIString>
+  <!--AddPdfDsgnRepToQu Snippet End-->
+
+  <!--Item-File-Importer-->
+  <UIString ID="ADSK-ItemFileImport_00">Sequential Files</UIString>
+  <UIString ID="ADSK-ItemFileImport_01">Could not get Item-File location path.</UIString>
+  <UIString ID="ADSK-ItemFileImport_02">by Drag and Drop Item File Importer</UIString>
+  <UIString ID="ADSK-ItemFileImport_03">File-Import added attachments</UIString>
+  <UIString ID="ADSK-ItemFileImport_04">At least one CAD file was filtered; use CAD application instead to import before item assignment</UIString>
+  <UIString ID="ADSK-ItemFileImport_05">Drop Files on Upload Symbol below; files are added to Vault and attached to this item.</UIString>
+  <UIString ID="ADSK-ItemFileImport_06">File-Import</UIString>
+  <UIString ID="ADSK-ItemFileImport_07">Drop files to import and attach.</UIString>
+  <!--Item-File-Importer en-->
   
 </UIStrings>

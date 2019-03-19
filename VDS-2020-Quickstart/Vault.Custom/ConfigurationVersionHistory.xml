@@ -13,7 +13,7 @@
   <ConfigInfo Name="Master" Version="Master2019.1.0">
     <ConfigHistoryInfo>
       <Changes>
-        <!--Configuration requires Vault 2019.1 as a minimum. A new check on LogOn validates this prerequisite.-->
+        <!--Configuration requires Vault 2020.1 as a minimum. A new check on LogOn validates this prerequisite.-->
         <!--Removed CAD.Custom\addins\ADSK.QS.FileNameValidation.ps1 as all enhancements got default configuration in CAD\addins\FileNameValidation.ps1-->
         <!--Added Message VAL14 to de-DE and en-US UIString tables-->
         <!--DSLanguages no longer preset for en-US only-->

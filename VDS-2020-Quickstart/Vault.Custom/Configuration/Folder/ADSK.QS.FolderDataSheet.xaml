@@ -96,7 +96,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="140"/>
-            <ColumnDefinition MinWidth="140"/>
+            <ColumnDefinition MaxWidth="500" MinWidth="500"/>
         </Grid.ColumnDefinitions>
         <Grid ToolTip="{Binding UIString[LBL73], FallbackValue='General Properties'}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="10,0,0,0">
             <Grid.RowDefinitions>
@@ -108,7 +108,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="120" />
-                <ColumnDefinition MinWidth="140" />
+                <ColumnDefinition MinWidth="180" MaxWidth="180" />
             </Grid.ColumnDefinitions>
             <Label Content="{Binding UIString[LBL8], FallbackValue=Category}" Grid.Column="0"/>
             <TextBox Text="{Binding Prop[_XLTN_CATEGORY NAME].Value}" x:Name="Cat" Grid.Column="1" />

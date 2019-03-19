@@ -38,7 +38,7 @@
 
 function FileNameCustomValidation
 {
-$dsDiag.Trace("Custom Validation starts...")
+	#$dsDiag.Trace("Custom Validation starts...")
     $DSNumSchmsCtrl = $dsWindow.FindName("DSNumSchmsCtrl")
     if ($DSNumSchmsCtrl -and -not $DSNumSchmsCtrl.NumSchmFieldsEmpty)
     {
@@ -90,7 +90,7 @@ $dsDiag.Trace("Custom Validation starts...")
 
 function FindFile($fileName)
 {
-$dsDiag.Trace("FindFile started from validation...")
+	#$dsDiag.Trace("FindFile started from validation...")
     $filePropDefs = $vault.PropertyService.GetPropertyDefinitionsByEntityClassId("FILE")
     $fileNamePropDef = $filePropDefs | where {$_.SysName -eq "ClientFileName"}
     $srchCond = New-Object 'Autodesk.Connectivity.WebServices.SrchCond'
@@ -113,7 +113,7 @@ $dsDiag.Trace("FindFile started from validation...")
         }
         else {break}
     }
-$dsDiag.Trace("...FindFile returns $($totalResults).")
+	#$dsDiag.Trace("...FindFile returns $($totalResults).")
     return $totalResults;
 }
 

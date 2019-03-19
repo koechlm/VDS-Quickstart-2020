@@ -70,7 +70,7 @@ function mGetProjectFolderPropToCADFile ([String] $mFolderSourcePropertyName, [S
 	}
 		
 	try {
-		$dsDiag.Trace("mWF: $mWF")
+		#$dsDiag.Trace("mWF: $mWF")
 		$mWFCAD = $mWF + $mCAxRoot
 		#merge the local path and relative target path of new file in vault
 		$mPath = $Prop["_FilePath"].Value.Replace($mWFCAD, "")
@@ -87,7 +87,7 @@ function mGetProjectFolderPropToCADFile ([String] $mFolderSourcePropertyName, [S
 				IF ($mFld.Cat.CatName -eq $UIString["CAT6"]) { $mProjectFound = $true}
 			} 
 			Until (($mFld.Cat.CatName -eq $UIString["CAT6"]) -or ($mFld.FullName -eq "$"))
-		}	
+		}
 	}
 	catch { 
 		[System.Windows.MessageBox]::Show("Failed retreiving the target Vault folder's path of this new file" , "Inventor VDS Client")
@@ -105,7 +105,7 @@ function mGetProjectFolderPropToCADFile ([String] $mFolderSourcePropertyName, [S
 
 # VDS Dialogs and Tabs share property name translations $Prop[_XLTN_*] according DSLanguage.xml override or default powerShell UI culture;
 # VDS MenuCommand scripts don't read as a default; call this function in case $UIString[] key value pairs are needed
-function mGetPropTranslations
+function mGetUIOverride
 {
 	# check language override settings of VDS
 	[xml]$mDSLangFile = Get-Content "C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault\DSLanguages.xml"
@@ -117,6 +117,27 @@ function mGetPropTranslations
 		$mValue = $xmlAttr.InnerXML
 		$mLCode.Add($mKey, $mValue)
 	}
+	return $mLCode
+}
+function mGetDBOverride
+{
+	# check language override settings of VDS
+	[xml]$mDSLangFile = Get-Content "C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault\DSLanguages.xml"
+	$mUICodes = $mDSLangFile.SelectNodes("/DSLanguages/Language_Code")
+	$mLCode = @{}
+	Foreach ($xmlAttr in $mUICodes)
+	{
+		$mKey = $xmlAttr.ID
+		$mValue = $xmlAttr.InnerXML
+		$mLCode.Add($mKey, $mValue)
+	}
+	return $mLCode
+}
+function mGetPropTranslations
+{
+	# check language override settings of VDS
+	$mLCode = @{}
+	$mLCode += mGetDBOverride
 	#If override exists, apply it, else continue with $PSUICulture
 	If ($mLCode["DB"]){
 		$mVdsDb = $mLCode["DB"]
@@ -133,4 +154,27 @@ function mGetPropTranslations
 		$mPrpTrnsltns.Add($mKey, $mValue)
 		}
 	return $mPrpTrnsltns
+}
+
+# VDS Dialogs and Tabs share UIString according DSLanguage.xml override or default powerShell UI culture;
+# VDS MenuCommand scripts don't read as a default; call this function in case $UIString[] key value pairs are needed
+function mGetUIStrings
+{
+# check language override settings of VDS
+	$mLCode = @{}
+	$mLCode += mGetUIOverride
+	#If override exists, apply it, else continue with $PSUICulture
+	If ($mLCode["UI"]){
+		$mVdsUi = $mLCode["UI"]
+	} 
+	Else{$mVdsUi=$PSUICulture}
+	[xml]$mUIStrFile = get-content ("C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\" + $mVdsUi + "\UIStrings.xml")
+	$UIString = @{}
+	$xmlUIStrs = $mUIStrFile.SelectNodes("/UIStrings/UIString")
+	Foreach ($xmlAttr in $xmlUIStrs) {
+		$mKey = $xmlAttr.ID
+		$mValue = $xmlAttr.InnerXML
+		$UIString.Add($mKey, $mValue)
+		}
+	return $UIString
 }

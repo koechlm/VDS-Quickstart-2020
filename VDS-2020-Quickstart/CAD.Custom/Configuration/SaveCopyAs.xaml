@@ -70,16 +70,16 @@
             <Setter Property="IsHitTestVisible" Value="False" />
             <Setter Property="Width" Value="0"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Name}" Value="MyPropName">
+                <DataTrigger Binding="{Binding Name}" Value="Title">
                     <Setter Property="IsHitTestVisible" Value="True" />
                     <Setter Property="Width" Value="Auto"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Button Content="{Binding DataContext.UIString[], FallbackValue=. . ., RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
-                                    Command="{Binding DataContext.PsCmd[], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" HorizontalAlignment="Right"
-                                    ToolTip="{Binding DataContext.UIString[], FallbackValue='No ToolTip set', RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
-                                    Grid.Column="1" Padding="5,1" Background="#FFDDDDDD" MinWidth="20"/>
+                                <Button Content=". . ." 
+                                    Command="{Binding DataContext.PsCmd[mCatalogClick], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                    ToolTip="{Binding DataContext.UIString[ClassTerms_TT05], FallbackValue=No hand typed values\, select from Catalog ..., RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Grid.Column="1" 
+                                    Padding="5,1" Background="#FFDDDDDD" IsTabStop="False" MinWidth="20"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -341,7 +341,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.HeaderTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn CellStyle="{StaticResource DynamicDataGridBtnCellStyle}"/>
+                            <DataGridTextColumn CellStyle="{StaticResource DynamicDataGridBtnCellStyle}" MinWidth="25" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -416,7 +416,7 @@
                             <ContextMenu>
                                 <MenuItem Header="{Binding UIString[MSDCE_BTN3], FallbackValue=Activate}" Command="{Binding PsCmd[mRemoveSc]}">
                                     <MenuItem.Icon>
-                                        <Image Source="C:\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\Vault.Custom\cancel.ico" ></Image>
+                                        <Image Source="/VDS-2019-Template;component/cancel3.ico" />
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </ContextMenu>

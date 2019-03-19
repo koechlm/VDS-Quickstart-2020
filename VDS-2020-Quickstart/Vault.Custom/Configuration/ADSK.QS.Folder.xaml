@@ -82,7 +82,42 @@
             <Setter Property="IsHitTestVisible" Value="False" />
             <Setter Property="Width" Value="0"/>
             <Style.Triggers>
-                
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding DataContext.CreateMode, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Value="True"/>
+                        <Condition Binding="{Binding Name}" Value="Customer"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="IsHitTestVisible" Value="True" />
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Button Content="{Binding DataContext.UIString[], FallbackValue=. . ., RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    Command="{Binding DataContext.PsCmd[mExpOrgPersLnk], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" HorizontalAlignment="Right"
+                                    ToolTip="{Binding DataContext.UIString[Adsk.Org.Pers.Link_06], FallbackValue='Select Organisation', RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    Grid.Column="1" Padding="5,1" Background="White" BorderThickness="0" MinWidth="25"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding DataContext.CreateMode, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Value="True"/>
+                        <Condition Binding="{Binding Name}" Value="Kunde"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="IsHitTestVisible" Value="True" />
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Button Content="{Binding DataContext.UIString[], FallbackValue=. . ., RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    Command="{Binding DataContext.PsCmd[mExpOrgPersLnk], RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" HorizontalAlignment="Right"
+                                    ToolTip="{Binding DataContext.UIString[Adsk.Org.Pers.Link_06], FallbackValue='Select Organisation', RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    Grid.Column="1" Padding="5,1" Background="White" BorderThickness="0" MinWidth="20"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </MultiDataTrigger>
             </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
@@ -183,6 +218,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition MaxWidth="500" />
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid x:Name="grdSystemProps" ToolTip="{Binding UIString[LBL73], FallbackValue=General Properties}">
                     <Grid.RowDefinitions>
@@ -196,7 +232,7 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120" />
-                        <ColumnDefinition MinWidth="140" MaxWidth="180" />
+                        <ColumnDefinition MinWidth="180" MaxWidth="180" />
                     </Grid.ColumnDefinitions>
                     <Label Content="{Binding UIString[LBL8], FallbackValue=Categories}" Grid.Row="0" Grid.Column="0" />
                     <ComboBox x:Name="Categories" Grid.Row="0" Grid.Column="1"
@@ -239,15 +275,15 @@
                     BorderThickness="0,1,1,1" IsTabStop="False" Height="Auto" />
                 </Grid>
                 <DataGrid Grid.Column="1" x:Name="DSDynCatPropGrid"
-                    ItemsSource="{Binding DynamicProperties}"
-                    ToolTip="{Binding UIString[LBL63], FallbackValue=Category Properties}"
-                    AutoGenerateColumns="False"
-                    HeadersVisibility="Column"
-                    ScrollViewer.CanContentScroll="True"
-                    EnableRowVirtualization="False"
-                    HorizontalGridLinesBrush="WhiteSmoke"
-                    VerticalGridLinesBrush="WhiteSmoke" BorderBrush="Gray" MaxWidth="500"
-                    Margin="5,0,0,0" MaxHeight="500">
+                ItemsSource="{Binding DynamicProperties}"
+                ToolTip="{Binding UIString[LBL63], FallbackValue=Category Properties}"
+                AutoGenerateColumns="False"
+                HeadersVisibility="Column"
+                ScrollViewer.CanContentScroll="True"
+                EnableRowVirtualization="False"
+                HorizontalGridLinesBrush="WhiteSmoke"
+                VerticalGridLinesBrush="WhiteSmoke" BorderBrush="Gray" MaxWidth="500"
+                Margin="5,0,0,0" MaxHeight="500">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Name}" CellStyle="{StaticResource DynamicDataGridLabelStyle}"
                         MinWidth="140" Width="Auto" IsReadOnly="True">
@@ -267,7 +303,7 @@
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
-                        <DataGridTextColumn CellStyle="{StaticResource DynamicDataGridBtnCellStyle}"/>
+                        <DataGridTextColumn CellStyle="{StaticResource DynamicDataGridBtnCellStyle}" MinWidth="25" />
                     </DataGrid.Columns>
                 </DataGrid>
                 <Grid x:Name="grdComments" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,10,0,0">
@@ -295,6 +331,38 @@
                     <Button x:Name="btnHelp" Content="{Binding UIString[MSDCE_BTN1], FallbackValue=Help}" 
                     Command="{Binding PsCmd[mHelp(600)]}" Height="24" ToolTip="F1" Margin="0" Width="80" />
                 </Grid>
+                <Expander x:Name="expOrgPersLnk" Grid.Column="2" ExpandDirection="Right" IsExpanded="True" Visibility="Collapsed" BorderThickness="0,1,1,1" MaxWidth="380">
+                    <Grid x:Name="grdOrgPersLnk">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" ToolTip="{Binding UIString[Adsk.Org.Pers.Link_04]}"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="lblOrganisation" Content="{Binding UIString[MSDCE_CO01], FallbackValue=Organisation}" Visibility="{Binding Visibility, ElementName=cmbOrganisation}" Grid.Row="1"/>
+                        <ComboBox x:Name="cmbOrganisation" Grid.Column="1" MinWidth="200"
+                                DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Prop[_XLTN_CUSTOMER].Value}" Grid.Row="1" />
+                        <Label x:Name="lblPerson" Content="{Binding UIString[Adsk.Org.Pers.Link_00], FallbackValue=Person}" Visibility="{Binding Visibility, ElementName=cmbPerson}" Grid.Row="2"/>
+                        <ComboBox x:Name="cmbPerson" Grid.Row="2" Grid.Column="1" 
+                                DisplayMemberPath="Name" SelectedValuePath="Name"  />
+                        <Grid x:Name="grdButtons" Grid.Row="4" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <Label x:Name="lblCreateLnks" Content="{Binding UIString[Adsk.Org.Pers.Link_03], FallbackValue=Create Link(s)}" Height="Auto" Grid.Row="3" BorderThickness="1"/>
+                        <Border Grid.Column="1" Grid.Row="3" BorderThickness="0,1,1,1" BorderBrush="#FFABADB3">
+                            <CheckBox x:Name="chkBoxCreateLnks" Height="15" Width="16"/>
+                        </Border>
+                        <TextBox Grid.ColumnSpan="2" Height="Auto" TextWrapping="Wrap" Text="{Binding UIString[Adsk.Org.Pers.Link_05], FallbackValue='Select Customer from Organisations'}" HorizontalContentAlignment="Center" IsUndoEnabled="False"/>
+                    </Grid>
+                </Expander>
             </Grid>
         </TabItem>
     </TabControl>

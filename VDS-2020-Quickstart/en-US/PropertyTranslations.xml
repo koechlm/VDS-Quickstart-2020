@@ -21,7 +21,7 @@
   <PropertyTranslation Name="SUBJECT">Subject</PropertyTranslation>
   <PropertyTranslation Name="AUTHOR">Author</PropertyTranslation>
   <PropertyTranslation Name="PARTNUMBER">Part Number</PropertyTranslation>
-  <PropertyTranslation Name="SEMIFINISHED">Semi finished</PropertyTranslation>
+  <PropertyTranslation Name="SEMIFINISHED">Semi-finished</PropertyTranslation>
   <PropertyTranslation Name="SPAREPART">Spare/Wear Part</PropertyTranslation>
   <PropertyTranslation Name="STOCKNUMBER">Stock Number</PropertyTranslation>
   <PropertyTranslation Name="MATERIAL">Material</PropertyTranslation>
@@ -46,6 +46,31 @@
   <PropertyTranslation Name="CONTACTNAME">Contact Person</PropertyTranslation>
   <!--Quickstart 2019 end-->
 
+  <!--Quickstart Extensions start-->
+  <PropertyTranslation Name ="ORGANISATION">Organisation</PropertyTranslation>
+  <!--Quickstart Extensions end-->
 
+  <!--Quickstart Extension Classification start-->
+  <PropertyTranslation Name="SEGMENT">Segment</PropertyTranslation>
+  <PropertyTranslation Name="MAINGROUP">Main Group</PropertyTranslation>
+  <PropertyTranslation Name="GROUP">Group</PropertyTranslation>
+  <PropertyTranslation Name="SUBGROUP">Sub Group</PropertyTranslation>
+  <PropertyTranslation Name="CLASS">Class</PropertyTranslation>
+  <!--Quickstart Extension Classification end-->
+
+  <!--CatalogTermsTranslations-->
+  <!--Note the default "Term" is used as object name and varies according the language-->
+  <PropertyTranslation Name="TERM">Term EN</PropertyTranslation>
+  <PropertyTranslation Name="TERM-DE">Term DE</PropertyTranslation>
+  <PropertyTranslation Name="TERM-EN">Term EN</PropertyTranslation>
+  <PropertyTranslation Name="TERM-FR">Term FR</PropertyTranslation>
+  <PropertyTranslation Name="TERM-IT">Term IT</PropertyTranslation>
+  <!--Note the default "Term" is used as object name and varies according the language-->
+  <PropertyTranslation Name="TITLE-DE">Title DE</PropertyTranslation>
+  <PropertyTranslation Name="TITLE-EN">Title</PropertyTranslation>
+  <PropertyTranslation Name="TITLE-FR">Title FR</PropertyTranslation>
+  <PropertyTranslation Name="TITLE-IT">Title IT</PropertyTranslation>
+  <!--Classification & Terms-->
+  
 </PropertyTranslations>
 

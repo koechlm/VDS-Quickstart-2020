@@ -12,12 +12,54 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
 -->
 <mymenu>
   <MenuItem>
-     <!--ReserveNumbers Menu item start-->
+    <!--FileImportNnumbering MenuItem Start-->
+    <FileImport Label = "Add Files (DMS)" Description = "Import Files" Hint = "Import Files"
+          PSFile = "ADSK.QS.ImportFiles.ps1" Image="FileImport.ico" ToolbarPaintStyle = "TextAndGlyph"
+          MultiSelectEnabled = "false"/>
+    <!--FileImportNnumbering Menu item end-->
+    
+    <!--CatalogTermsTranslations-->
+    <newTermObject Label = "$UIString[ClassTerms_MNU10]" Description = "$UIString[ClassTerms_MNU11]" Hint = "$UIString[ClassTerms_MNU11]"
+          PSFile = "ADSK.QS.CreateCustomObjectTerm.ps1" Image="Term-add.ico" ToolbarPaintStyle = "TextAndGlyph"
+          NavigationTypes ="$UIString[ClassTerms_00]" MultiSelectEnabled = "false" />
+    <editTermObject Label = "$UIString[ClassTerms_MNU12]" Description = "$UIString[ClassTerms_MNU13]" Hint = "$UIString[ClassTerms_MNU13]"
+      PSFile = "ADSK.QS.EditCustomObjectTerm.ps1" Image="Term-edit.ico" ToolbarPaintStyle = "TextAndGlyph"
+      NavigationTypes ="$UIString[ClassTerms_00]" MultiSelectEnabled = "false"/>
+    <!--CatalogTermsTranslations End-->
+
+    <!--GoToNavigation MenuItem Start-->
+    <GoToSourceFile Label = "$UIString[ADSK-GoToNavigation_MNU01]" Description = "$UIString[ADSK-GoToNavigation_MNU01]" Hint = "$UIString[ADSK-GoToNavigation_MNU01]"
+      PSFile = "ADSK.QS.GoToSourceFile.ps1" Image="GoToSource.ico" ToolbarPaintStyle = "TextAndGlyph"
+      MultiSelectEnabled = "false" NavigationTypes="File"/>
+    <GoToReplacedBy Label = "$UIString[ADSK-GoToNavigation_MNU02]" Description = "$UIString[ADSK-GoToNavigation_MNU02]" Hint = "$UIString[ADSK-GoToNavigation_MNU02]"
+      PSFile = "ADSK.QS.GoToReplacedBy.ps1" Image="GoToReplacedBy.ico" ToolbarPaintStyle = "TextAndGlyph"
+      MultiSelectEnabled = "false" NavigationTypes="File"/>
+    <GoToSelectedFile Label = "$UIString[ADSK-GoToNavigation_MNU03]" Description = "$UIString[ADSK-GoToNavigation_MNU03]" Hint = "$UIString[ADSK-GoToNavigation_MNU03]"
+      PSFile = "ADSK.QS.GoToSelectedFile.ps1" Image="GoToSelectedFile.ico" ToolbarPaintStyle = "TextAndGlyph"
+      MultiSelectEnabled = "false" />
+    <GoToInvSibling Label = "$UIString[ADSK-GoToInvSibl_MNU00]" Description = "$UIString[ADSK-GoToInvSibl_MNU00]" Hint = "$UIString[ADSK-GoToInvSibl_MNU00]"
+          PSFile = "ADSK.QS.GoToInvSibling.ps1" Image="Search.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes="File"
+          MultiSelectEnabled = "false" />
+    <!--GoToNavigation MenuItem End-->
+
+    <!--Activate Scheduled Task-->
+    <ActivateSchedTask Label = "$UIString[ADSK-ActivateSchedTask-00]" Description = "$UIString[ADSK-ActivateSchedTask-00]" Hint = "$UIString[ADSK-ActivateSchedTask-00]"
+     PSFile = "ADSK.QS.ActivateSchedTask.ps1" Image="Vault.ico" ToolbarPaintStyle = "TextAndGlyph"
+     MultiSelectEnabled = "false"/>
+    <!--Activate Scheduled Task-->
+
+    <!--AddPdfDsgnRepToQu Menu item start-->
+    <AddPdfDsgnRepToQu Label = "$UIString[ADSK-AddPdfDsgnRepToQu-MNU00]" Description = "$UIString[ADSK-AddPdfDsgnRepToQu-MNU00]" Hint = "$UIString[ADSK-AddPdfDsgnRepToQu-MNU00]"
+      PSFile = "ADSK.QS.AddPdfDsgnRepToQu.ps1" Image="PDF.ico" ToolbarPaintStyle = "TextAndGlyph"
+      MultiSelectEnabled = "true"/>
+    <!--AddPdfDsgnRepToQu Menu item end-->
+
+    <!--ReserveNumbers Menu item start-->
     <ReserveNumbers Label = "$UIString[ADSK-RSRVNUMBERS_MNU20]" Description = "$UIString[ADSK-RSRVNUMBERS_MNU20]" Hint = "$UIString[ADSK-RSRVNUMBERS_MNU20]"
       PSFile = "ADSK.QS.ReserveNumbers.ps1" Image="ReserveNumbers.ico" ToolbarPaintStyle = "TextAndGlyph"
       MultiSelectEnabled = "false"/>
     <!--ReserveNumbers Menu item end-->
-    
+
     <!--Quickstart Menu items start-->
     <showCustomHelp Label = "$UIString[MSDCE_MNU19]" Description = "$UIString[MSDCE_MNU19]" Hint = "$UIString[MSDCE_MNU19]"
       PSFile = "showCustomHelp.ps1" Image="CustomHelpDoc.ico" ToolbarPaintStyle = "TextAndGlyph"
@@ -27,24 +69,24 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       Image="Task-add.ico" ToolbarPaintStyle="TextAndGlyph" NavigationTypes="$UIString[MSDCE_CO03]" MultiSelectEnabled="False" />
     <EditTask Label="$UIString[MSDCE_MNU04]" Description="$UIString[MSDCE_MNU04]" Hint="$UIString[MSDCE_MNU05]" PSFile="ADSK.QS.EditCustomObject.ps1"
       Image="Task-edit.ico" ToolbarPaintStyle="TextAndGlyph" NavigationTypes="$UIString[MSDCE_CO03]" MultiSelectEnabled="False" />
-    
+
     <newOrganisationObject Label = "$UIString[MSDCE_MNU08]" Description = "$UIString[MSDCE_MNU07]" Hint = "$UIString[MSDCE_MNU08]" PSFile = "ADSK.QS.CreateCustomObject.ps1"
       Image="factory-add.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes ="$UIString[MSDCE_CO01]" MultiSelectEnabled = "false"/>
     <editOrganisationObject Label = "$UIString[MSDCE_MNU10]" Description = "$UIString[MSDCE_MNU09]" Hint = "$UIString[MSDCE_MNU10]" PSFile = "ADSK.QS.EditCustomObject.ps1"
       Image="factory-edit.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes ="$UIString[MSDCE_CO01]" MultiSelectEnabled = "false"/>
-    
+
     <newPersonObject Label = "$UIString[MSDCE_MNU12]" Description = "$UIString[MSDCE_MNU11]" Hint = "$UIString[MSDCE_MNU12]" PSFile = "ADSK.QS.CreateCustomObject.ps1"
       Image="user-w-add.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes ="$UIString[MSDCE_CO02]" MultiSelectEnabled = "false"/>
     <editPersonObject Label = "$UIString[MSDCE_MNU14]" Description = "$UIString[MSDCE_MNU13]" Hint = "$UIString[MSDCE_MNU14]" PSFile = "ADSK.QS.EditCustomObject.ps1"
       Image="user-w-edit.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes ="$UIString[MSDCE_CO02]" MultiSelectEnabled = "false"/>
-    
-    <newTransmittalObject Label = "$UIString[MSDCE_MNU16]" Description = "$UIString[MSDCE_MNU15]" Hint = "$UIString[MSDCE_MNU16]" PSFile = "ADSK.QS.CreateCustomObject.ps1"
+
+    <!--<newTransmittalObject Label = "$UIString[MSDCE_MNU16]" Description = "$UIString[MSDCE_MNU15]" Hint = "$UIString[MSDCE_MNU16]" PSFile = "ADSK.QS.CreateCustomObject.ps1"
       Image="Transmittal-add.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes ="$UIString[MSDCE_CO04]" MultiSelectEnabled = "false"/>
     <editTransmittalObject Label = "$UIString[MSDCE_MNU18]" Description = "$UIString[MSDCE_MNU17]" Hint = "$UIString[MSDCE_MNU18]" PSFile = "ADSK.QS.EditCustomObject.ps1"
-      Image="Transmittal-edit.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes ="$UIString[MSDCE_CO04]" MultiSelectEnabled = "false"/>
-   
+      Image="Transmittal-edit.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes ="$UIString[MSDCE_CO04]" MultiSelectEnabled = "false"/>-->
+
     <!--Quickstart Menu items end-->
-    
+
     <NewFile Label="$UIString[MNU1]" Description="$UIString[MNU11]" Hint="$UIString[MNU7]" PSFile="ADSK.QS.CreateFile.ps1"
              Image="NewStandardFile.ico" ToolbarPaintStyle="TextAndGlyph" NavigationTypes="File,Folder"
              MultiSelectEnabled="False" />
@@ -89,27 +131,30 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       <Item Name="NewFile"></Item>
       <Item Name="EditFile"></Item>
       <Item Name="mInsertInvCompCopy"></Item>
+      <Item Name="FileImport"></Item>
     </FileContext>
     <FolderContex Label="myMenu" DeployAsPullDown="False" Location="FolderContextMenu">
       <Item Name="NewFile"></Item>
       <Item Name="NewFolder"></Item>
       <Item Name="EditFolder"></Item>
+      <Item Name="FileImport"></Item>
     </FolderContex>
     <StandardToolbar Label="myMenu" DeployAsPullDown="False" Location="StandardToolbar">
       <Item Name="NewFile"></Item>
       <Item Name="EditFile"></Item>
-    </StandardToolbar>    
+    </StandardToolbar>
     <ToolsMenu Label="myMenu" DeployAsPullDown="False" Location="ToolsMenu">
       <Item Name="ShowLog"></Item>
       <Item Name="ReserveNumbers"></Item>
     </ToolsMenu>
     <ActionsMenu Label="myMenu" DeployAsPullDown="False" Location="ActionsMenu">
       <Item Name="ActivateSchedTask"></Item>
+      <Item Name="AddPdfDsgnRepToQu"></Item>
     </ActionsMenu>
     <HelpMenu Label="myMenu" DeployAsPullDown="False" Location="HelpMenu">
       <Item Name="AboutDialog"></Item>
       <Item Name="showCustomHelp"></Item>
-    </HelpMenu>  
+    </HelpMenu>
     <CustomObject Label="$UIString[MSDCE_CO01]" DeployAsPullDown="False" Location="Organisation">
       <Item Name="newOrganisationObject"></Item>
       <Item Name="editOrganisationObject"></Item>
@@ -122,19 +167,27 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       <Item Name="NewTask"></Item>
       <Item Name="EditTask"></Item>
     </CustomObject>
-    <CustomObject Label="$UIString[MSDCE_CO03]" DeployAsPullDown="False" Location="Aufgabe">
+    <!--<CustomObject Label="$UIString[MSDCE_CO03]" DeployAsPullDown="False" Location="Aufgabe">
       <Item Name="NewTask"></Item>
       <Item Name="EditTask"></Item>
-    </CustomObject>
-    <CustomObject Label="$UIString[MSDCE_CO04]" DeployAsPullDown="False" Location="Transmittal">
+    </CustomObject>-->
+    <!--<CustomObject Label="$UIString[MSDCE_CO04]" DeployAsPullDown="False" Location="Transmittal">
       <Item Name="newTransmittalObject"></Item>
       <Item Name="editTransmittalObject"></Item>
-    </CustomObject>
-    <CustomObject Label="$UIString[MSDCE_CO04]" DeployAsPullDown="False" Location="Sendung">
+    </CustomObject>-->
+    <!--<CustomObject Label="$UIString[MSDCE_CO04]" DeployAsPullDown="False" Location="Sendung">
       <Item Name="newTransmittalObject"></Item>
       <Item Name="editTransmittalObject"></Item>
-    </CustomObject>
+    </CustomObject>-->
     <!--Quickstart Command Sites End-->
+    <!--<CustomObject Label="$UIString[ClassTerms_00]" DeployAsPullDown="False" Location="Begriff">
+    <Item Name="newTermObject"></Item>
+    <Item Name="editTermObject"></Item>
+  </CustomObject>-->
+    <CustomObject Label="$UIString[ClassTerms_00]" DeployAsPullDown="False" Location="Term">
+      <Item Name="newTermObject"></Item>
+      <Item Name="editTermObject"></Item>
+    </CustomObject>
   </CommandSite>
 
   <!--
