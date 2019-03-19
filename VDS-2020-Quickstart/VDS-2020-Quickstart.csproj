@@ -45,7 +45,7 @@
       <HintPath>..\..\..\..\..\..\ProgramData\Autodesk\Vault 2020\Extensions\DataStandard\CreateObject.dll</HintPath>
     </Reference>
     <Reference Include="dataStandard.UI">
-      <HintPath>..\..\..\..\..\..\ProgramData\Autodesk\Inventor 2020\Addins\Data Standard\dataStandard.UI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\ProgramData\Autodesk\ApplicationPlugins\Autodesk DataStandard 2020.bundle\Contents\dataStandard.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
