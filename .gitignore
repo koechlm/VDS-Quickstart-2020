@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/VDS-2020-Quickstart/VDS-Quickstart-Standard-2020.0.0.0.7z
+/VDS-2020-Quickstart/VDS-Quickstart-Disclaimer.txt
