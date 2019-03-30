@@ -452,4 +452,9 @@
     <DynamicProperty>FLCdmsID</DynamicProperty>
     <DynamicProperty>FLCwsID</DynamicProperty>
   </DynamicPropertiesCategory>
+  <DynamicPropertiesCategory Category="BIM Exchange" Type="File">
+    <DynamicProperty>Title</DynamicProperty>
+    <DynamicProperty>Description</DynamicProperty>
+    <DynamicProperty>Manufacturer</DynamicProperty>
+  </DynamicPropertiesCategory>
 </DynamicProperties>
