@@ -534,7 +534,10 @@ function m_CategoryChanged
 		"FileWindow"
 		{
 			#Quickstart uses the default numbering scheme for files; GoTo GetNumSchms function to disable this filter incase you'd like to apply numbering per category for files as well
-			$Prop['_XLTN_AUTHOR'].Value = $VaultConnection.UserName
+			If ($Prop['_XLTN_AUTHOR'])
+			{
+				$Prop['_XLTN_AUTHOR'].Value = $VaultConnection.UserName
+			}
 		}
 
 		"FolderWindow" 
