@@ -117,7 +117,7 @@ function mDragEnter ($sender, $e)
 				$mDtRow = New-Object FilePropData
 				
 				#get new number and create new file name
-				[System.Collections.ArrayList]$numSchems = @($vault.DocumentService.GetNumberingSchemesByType('Activated'))
+				[System.Collections.ArrayList]$numSchems = @($vault.NumberingService.GetNumberingSchemes('FILE', 'Activated'))
 				if ($numSchems.Count -gt 1 -and $dsWindow.FindName("radioNumberedName").IsChecked -eq $true)
 				{							
 					$_DfltNumSchm = $numSchems | Where { $_.Name -eq $UIString["ADSK-ItemFileImport_00"]}
