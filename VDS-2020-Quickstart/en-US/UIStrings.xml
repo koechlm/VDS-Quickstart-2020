@@ -452,5 +452,12 @@
   <UIString ID="ADSK-ItemFileImport_06">File-Import</UIString>
   <UIString ID="ADSK-ItemFileImport_07">Drop files to import and attach.</UIString>
   <!--Item-File-Importer en-->
+
+  <!--ADSK-File Property Provider-->
+  <UIString ID="ADSKFile-MetaReader-00">ADSK-Datei Metadaten auslesen</UIString>
+  <UIString ID="ADSKFile-MetaReader-01">Importiert ADSK-Datei Metadaten</UIString>
+  <UIString ID="ADSKFile-MetaReader-02">Importiere ADSK-Datei Metadaten</UIString>
+  <UIString ID="ADSK-FilePropRead-00">Hersteller</UIString>
+  <!--ADSK-File-Property-Reader End-->
   
 </UIStrings>

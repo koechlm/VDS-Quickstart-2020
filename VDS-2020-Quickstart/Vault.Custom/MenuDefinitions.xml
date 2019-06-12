@@ -54,12 +54,6 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
      MultiSelectEnabled = "false"/>
     <!--Activate Scheduled Task-->
 
-    <!--AddPdfDsgnRepToQu Menu item start-->
-    <AddPdfDsgnRepToQu Label = "$UIString[ADSK-AddPdfDsgnRepToQu-MNU00]" Description = "$UIString[ADSK-AddPdfDsgnRepToQu-MNU00]" Hint = "$UIString[ADSK-AddPdfDsgnRepToQu-MNU00]"
-      PSFile = "ADSK.QS.AddPdfDsgnRepToQu.ps1" Image="PDF.ico" ToolbarPaintStyle = "TextAndGlyph"
-      MultiSelectEnabled = "true"/>
-    <!--AddPdfDsgnRepToQu Menu item end-->
-
     <!--ReserveNumbers Menu item start-->
     <ReserveNumbers Label = "$UIString[ADSK-RSRVNUMBERS_MNU20]" Description = "$UIString[ADSK-RSRVNUMBERS_MNU20]" Hint = "$UIString[ADSK-RSRVNUMBERS_MNU20]"
       PSFile = "ADSK.QS.ReserveNumbers.ps1" Image="ReserveNumbers.ico" ToolbarPaintStyle = "TextAndGlyph"

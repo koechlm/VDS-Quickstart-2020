@@ -134,7 +134,7 @@
     <None Include="Vault.Custom\addinVault\ADSK.QS.TermsTranslations.psm1" />
     <None Include="Vault.Custom\addinVault\ADSK.QS.VLT.Library.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.ActivateSchedTask.ps1" />
-    <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.AddPdfDsgnRepToQu.ps1" />
+    <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.AdskFilePropProvider.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.CreateCustomObject.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.CreateCustomObjectTerm.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.CreateFile.ps1" />
