@@ -11,8 +11,8 @@
 #endregion
 
 #region - version history
-# Version Info - ADSK.QS.FileImport 2019.0.0
-	# initial version
+# Version Info - ADSK.QS.FileImport 2020.0.0
+	# updated according new NumberingService
 #endregion
 
 Add-Type @"
