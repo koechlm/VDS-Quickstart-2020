@@ -377,12 +377,40 @@ function OnTabContextChanged
 		$mItemEditable = mItemEditable($itemids) #note - checks the current state to activate buttons, but this might change over time; therefore the state is local
 	}
 	
-	if ($VaultContext.SelectedObject.TypeId.SelectionContext -eq "ChangeOrder" -and $xamlFile -eq "ADSK.QS.EcoEdit.xaml")
+		#region ECO-Task-Links
+	if ($VaultContext.SelectedObject.TypeId.SelectionContext -eq "ChangeOrder" -and $xamlFile -eq "ADSK.QS.TaskLinks.xaml")
 	{
-		$number=$vaultContext.SelectedObject.Label
-		$mECO = $vault.ChangeOrderService.GetChangeOrderByNumber($number)
-		$mEcoEditable = mEcoEditable($mECO.Id) #note - checks the current state to activate buttons, but this might change over time; therefore the state is local
+		$mCoId = $VaultContext.SelectedObject.Id
+		
+		[System.Reflection.Assembly]::LoadFrom($Env:ProgramData + "\Autodesk\Vault 2020\Extensions\DataStandard" + '\Vault.Custom\addinVault\QuickstartUtilityLibrary.dll')
+		$_mVltHelpers = New-Object QuickstartUtilityLibrary.VltHelpers
+
+		#to get links of COs to CUSTENT we need to analyse the CUSTENTS for linked children of type CO
+		#get all CUSTENTS of category $_CoName first, then iterate the result and analyse each items links: do they link to the current CO id?
+        $_CoName = $UIString["ADSK-LnkdTask-00"]
+		$_allCustents = mgetCustomEntityList $_CoName
+		$_LinkedCustentIDs = @()
+		Foreach ($_Custent in $_allCustents)
+		{
+			$_AllLinks1 = $_mVltHelpers.mGetLinkedChildren1($vaultConnection, $_Custent.Id, "CUSTENT", "CO")
+			If($_AllLinks1) #the current custent has links; check that the current ECO is one of these link's target
+			{
+				$_match = $_AllLinks1 | Where { $_ -eq $mCoId }
+				If($_match){ $_LinkedCustentIDs += $_Custent.Id}
+			}		
+		}
+		
+		#get all detail information of $_LinkedCustentIDs and push to the datagrid
+		If($_LinkedCustentIDs.Count -ne 0)
+		{
+			$_LinkedCustentsMeta = @(mGetAssocCustents $_LinkedCustentIDs)
+		}
+		$dsWindow.FindName("dataGrdLinks").ItemsSource = $_LinkedCustentsMeta
+		$dsWindow.FindName("dataGrdLinks").add_SelectionChanged({
+			$dsWindow.FindName("txtComments").Text = $dsWindow.FindName("dataGrdLinks").SelectedItem.Comments
+		})
 	}
+	#endregion
 
 	if ($VaultContext.SelectedObject.TypeId.SelectionContext -eq "FileMaster" -and $xamlFile -eq "ADSK.QS.FileItemDataSheet.xaml")
 	{

@@ -124,6 +124,7 @@
     <None Include="Vault.Custom\addinVault\ADSK.QS.Classification.ps1" />
     <None Include="Vault.Custom\addinVault\ADSK.QS.Default.ps1" />
     <None Include="Vault.Custom\addinVault\ADSK.QS.DerivationTree.ps1" />
+    <None Include="Vault.Custom\addinVault\ADSK.QS.ECOTaskLink.ps1" />
     <None Include="Vault.Custom\addinVault\ADSK.QS.FileBOM.ps1" />
     <None Include="Vault.Custom\addinVault\ADSK.QS.FileDocStructure.ps1" />
     <None Include="Vault.Custom\addinVault\ADSK.QS.FileImport.ps1" />
@@ -273,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Vault.Custom\Configuration\Eco\ADSK.QS.TaskLinks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Vault.Custom\Configuration\File\ADSK.QS.CAD BOM.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -372,6 +377,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vault.Custom\addinVault\UsesWhereUsed.dll" />
+    <Resource Include="Vault.Custom\Configuration\Eco\Icons\task.ico" />
     <Resource Include="Vault.Custom\Configuration\File\Icons\attachment.png" />
     <Resource Include="Vault.Custom\Configuration\File\Icons\docx.png" />
     <Resource Include="Vault.Custom\Configuration\File\Icons\dwg.png" />

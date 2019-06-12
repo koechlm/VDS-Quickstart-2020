@@ -460,4 +460,15 @@
   <UIString ID="ADSK-FilePropRead-00">Manufacturer</UIString>
   <!--ADSK-File-Property-Reader End-->
   
+  <!--ECO-Tasks Management Extension Start-->
+  <UIString ID="ADSK-LnkdTask-00">Task</UIString>
+  <UIString ID="ADSK-LnkdTask-01">Linked Tasks</UIString>
+  <UIString ID="ADSK-LnkdTask-02">Date Start</UIString>
+  <UIString ID="ADSK-LnkdTask-03">Date End</UIString>
+  <UIString ID="ADSK-LnkdTask-04">Owner</UIString>
+  <UIString ID="ADSK-LnkdTask-05">Priority</UIString>
+  <UIString ID="ADSK-LnkdTask-06">Notes/Details. Selected task to display:</UIString>
+  <!--ECO-Tasks Management Extension End-->  
+  
+  
 </UIStrings>

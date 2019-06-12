@@ -463,5 +463,15 @@
   <UIString ID="ADSKFile-MetaReader-02">Importiere ADSK-Datei Metadaten</UIString>
   <UIString ID="ADSK-FilePropRead-00">Hersteller</UIString>
   <!--ADSK-File-Property-Reader End-->
+
+  <!--Claims Management Extension Start-->
+  <UIString ID="ADSK-LnkdTask-00">Aufgabe</UIString>
+  <UIString ID="ADSK-LnkdTask-01">Verknüpfte Aufgaben</UIString>
+  <UIString ID="ADSK-LnkdTask-02">Datum Start</UIString>
+  <UIString ID="ADSK-LnkdTask-03">Datum Ende</UIString>
+  <UIString ID="ADSK-LnkdTask-04">Verantwortlich</UIString>
+  <UIString ID="ADSK-LnkdTask-05">Priorität</UIString>
+  <UIString ID="ADSK-LnkdTask-06">Notizen/Detailinformationen. Wählen Sie eine Aufgabe zur Anzeige:</UIString>
+  <!--Claims Management Extension End-->
   
 </UIStrings>
