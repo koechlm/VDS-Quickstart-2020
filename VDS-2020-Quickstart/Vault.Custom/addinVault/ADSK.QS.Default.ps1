@@ -748,9 +748,13 @@ function GetNumSchms
 					{
 						"FileWindow"
 						{
-							$_FilteredNumSchems = $numSchems | Where { $_.IsDflt -eq $true}
-							$Prop["_NumSchm"].Value = $_FilteredNumSchems[0].Name
-							$dsWindow.FindName("NumSchms").IsEnabled = $false
+							$_FilteredNumSchems = @()
+							$_Default = $numSchems | Where { $_.IsDflt -eq $true}
+							$_FilteredNumSchems += ($_Default)
+							$dsWindow.FindName("NumSchms").IsEnabled = $true
+							$noneNumSchm = New-Object 'Autodesk.Connectivity.WebServices.NumSchm'
+							$noneNumSchm.Name = $UIString["LBL77"] # None 
+							$_FilteredNumSchems += $noneNumSchm
 							return $_FilteredNumSchems
 						}
 

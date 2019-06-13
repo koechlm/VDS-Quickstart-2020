@@ -5,6 +5,10 @@
     <Path>$/Templates/Inventor</Path>
   </DocTypeInfo>
   <DocTypeInfo>
+    <DocName>iLogic Rule</DocName>
+    <Path>$/Templates/Inventor iLogic</Path>
+  </DocTypeInfo>
+  <DocTypeInfo>
     <DocName>AutoCAD Mechanical</DocName>
     <Path>$/Templates/Mechanical</Path>
   </DocTypeInfo>

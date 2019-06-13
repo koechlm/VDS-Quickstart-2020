@@ -344,11 +344,15 @@
             <Setter Property="Margin" Value="0,15,2,5" />
         </Style>
         <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
+            <Setter Property="IsExpanded" Value="True" />
             <Style.Triggers>
                 <DataTrigger Binding="{Binding CreateMode}" Value="True">
                     <Setter Property="IsExpanded" Value="False" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding HasItems, ElementName=NumSchms}" Value="False">
+                    <Setter Property="IsExpanded" Value="True" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding NumSchmFieldsEmpty, ElementName=DSNumSchmsCtrl}" Value="True">
                     <Setter Property="IsExpanded" Value="True" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding EditMode}" Value="True">
