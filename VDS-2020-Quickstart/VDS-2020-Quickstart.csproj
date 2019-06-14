@@ -147,7 +147,9 @@
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.GoToInvSibling.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.GoToReplacedBy.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.GoToSelectedFile.ps1" />
+    <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.GoToSelectedTask.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.GoToSourceFile.ps1" />
+    <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.GoToTasksECO.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.ImportFiles.ps1" />
     <None Include="Vault.Custom\addinVault\Menus\ADSK.QS.ReserveNumbers.ps1" />
     <None Include="Vault\addinVault\AssociatedFiles.ps1" />
@@ -377,6 +379,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vault.Custom\addinVault\UsesWhereUsed.dll" />
+    <Resource Include="Vault.Custom\ECO-GoTo.ico" />
+    <Resource Include="Vault.Custom\MenuDefinitions - Copy.xml" />
+    <Resource Include="Vault.Custom\task-GoTo.ico" />
     <Resource Include="Vault.Custom\Configuration\Eco\Icons\task.ico" />
     <Resource Include="Vault.Custom\Configuration\File\Icons\attachment.png" />
     <Resource Include="Vault.Custom\Configuration\File\Icons\docx.png" />

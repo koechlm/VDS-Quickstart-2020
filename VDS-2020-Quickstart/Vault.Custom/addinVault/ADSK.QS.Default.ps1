@@ -85,7 +85,6 @@ function InitializeTabWindow
 
 function InitializeWindow
 {	      
-
         #$dsDiag.ShowLog()
         #$dsDiag.Clear()
       
@@ -408,6 +407,7 @@ function OnTabContextChanged
 		$dsWindow.FindName("dataGrdLinks").ItemsSource = $_LinkedCustentsMeta
 		$dsWindow.FindName("dataGrdLinks").add_SelectionChanged({
 			$dsWindow.FindName("txtComments").Text = $dsWindow.FindName("dataGrdLinks").SelectedItem.Comments
+			mTaskClick
 		})
 	}
 	#endregion

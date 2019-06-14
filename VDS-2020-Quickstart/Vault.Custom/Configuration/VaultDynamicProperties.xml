@@ -130,6 +130,9 @@
     <DynamicProperty>Has MBD</DynamicProperty>
     <DynamicProperty>Sub-Type</DynamicProperty>
     <DynamicProperty>Engr Approved Date</DynamicProperty>
+    <DynamicProperty>MBD</DynamicProperty>
+    <DynamicProperty>Part Family</DynamicProperty>
+    <DynamicProperty>Key Parameters</DynamicProperty>
   </DynamicPropertiesCategory>
   <DynamicPropertiesCategory Category="Office" Type="File">
     <DynamicProperty>Title</DynamicProperty>
@@ -463,5 +466,21 @@
     <DynamicProperty>Title</DynamicProperty>
     <DynamicProperty>Description</DynamicProperty>
     <DynamicProperty>Manufacturer</DynamicProperty>
+  </DynamicPropertiesCategory>
+  <DynamicPropertiesCategory Category="iLogic Rule" Type="FILE">
+    <DynamicProperty>Description</DynamicProperty>
+  </DynamicPropertiesCategory>
+  <DynamicPropertiesCategory Category="FLC-Task" Type="CustomObject">
+    <DynamicProperty>Title</DynamicProperty>
+    <DynamicProperty>Description</DynamicProperty>
+    <DynamicProperty>Date End</DynamicProperty>
+    <DynamicProperty>Date Start</DynamicProperty>
+    <DynamicProperty>FLCdmsID</DynamicProperty>
+    <DynamicProperty>FLCwsID</DynamicProperty>
+    <DynamicProperty>Priority</DynamicProperty>
+    <DynamicProperty>Owner</DynamicProperty>
+    <DynamicProperty>FLC Creator</DynamicProperty>
+    <DynamicProperty>FLC Reviewer</DynamicProperty>
+    <DynamicProperty>Comments</DynamicProperty>
   </DynamicPropertiesCategory>
 </DynamicProperties>

@@ -42,10 +42,16 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       MultiSelectEnabled = "false" NavigationTypes="File"/>
     <GoToSelectedFile Label = "$UIString[ADSK-GoToNavigation_MNU03]" Description = "$UIString[ADSK-GoToNavigation_MNU03]" Hint = "$UIString[ADSK-GoToNavigation_MNU03]"
       PSFile = "ADSK.QS.GoToSelectedFile.ps1" Image="GoToSelectedFile.ico" ToolbarPaintStyle = "TextAndGlyph"
-      MultiSelectEnabled = "false" />
+      MultiSelectEnabled = "false" NavigationTypes="File"/>
     <GoToInvSibling Label = "$UIString[ADSK-GoToInvSibl_MNU00]" Description = "$UIString[ADSK-GoToInvSibl_MNU00]" Hint = "$UIString[ADSK-GoToInvSibl_MNU00]"
           PSFile = "ADSK.QS.GoToInvSibling.ps1" Image="Search.ico" ToolbarPaintStyle = "TextAndGlyph" NavigationTypes="File"
           MultiSelectEnabled = "false" />
+    <GoToSelectedTask Label = "Go to selected ECO's active Task" Description = "Select Task in its Workspace" Hint = "Go To Selected Task"
+      PSFile = "ADSK.QS.GoToSelectedTask.ps1" Image="Task-GoTo.ico" ToolbarPaintStyle = "TextAndGlyph"
+      MultiSelectEnabled = "false" NavigationTypes="ChangeOrder" />
+    <GoToLinkedEco Label = "Go to linked ECO" Description = "Select ECO in its Workspace" Hint = "Go To ECO"
+      PSFile = "ADSK.QS.GoToTasksECO.ps1" Image="ECO-GoTo.ico" ToolbarPaintStyle = "TextAndGlyph"
+      MultiSelectEnabled = "false"/>
     <!--GoToNavigation MenuItem End-->
 
     <!--Activate Scheduled Task-->
@@ -126,6 +132,8 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       <Item Name="GoToSourceFile"></Item>
       <Item Name="GoToSelectedFile"></Item>
       <Item Name="GoToInvSibling"></Item>
+      <Item Name ="GoToSelectedTask"></Item>
+      <Item Name="GoToLinkedEco"></Item>
     </FileContext>
     <FileContext Label="myMenu" DeployAsPullDown="False" Location="FileContextMenu">
       <Item Name="NewFile"></Item>
@@ -189,6 +197,9 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       <Item Name="newTermObject"></Item>
       <Item Name="editTermObject"></Item>
     </CustomObject>
+    <ChangeOrder Label="Go To Linked Task" DeployAsPullDown="False" Location="ChangeOrderContextMenu">
+      <Item Name ="GoToSelectedTask"></Item>
+    </ChangeOrder>
   </CommandSite>
 
   <!--

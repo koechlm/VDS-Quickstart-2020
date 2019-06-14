@@ -85,3 +85,13 @@ function mGetAssocCustents($mIds)
 	return $mAssocCustents
 
 }
+
+function mTaskClick()
+{
+	$mSelItem = $dsWindow.FindName("dataGrdLinks").SelectedItem
+    $mOutFile = "mECOTabClick.txt"
+	foreach($mItem in $mSelItem)
+	{
+		$mItem.Name | Out-File $env:TEMP"\$mOutFile"
+	}
+}
