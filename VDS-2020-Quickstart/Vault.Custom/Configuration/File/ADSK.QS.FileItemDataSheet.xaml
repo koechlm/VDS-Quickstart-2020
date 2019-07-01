@@ -233,14 +233,14 @@
                         <DataGridTextColumn x:Name="ItemPropName" Binding="{Binding Name, Mode=OneWay}" IsReadOnly="True" Width="Auto">
                             <DataGridTextColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding UIString[Adsk.QS.ItemSearch_26], FallbackValue=Property Name}" />
+                                    <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.ItemSearch_26], FallbackValue=Property Name, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
                         <DataGridTextColumn x:Name="ItemPropValue" Binding="{Binding Value, Mode=OneWay}" IsReadOnly="True" Width="*">
                             <DataGridTextColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding UIString[Adsk.QS.ItemSearch_27], FallbackValue=Property Value}" />
+                                    <TextBlock Text="{Binding DataContext.UIString[Adsk.QS.ItemSearch_27], FallbackValue=Property Value, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>

@@ -510,7 +510,7 @@ function mFillItemView($file)
 				$dsWindow.FindName("txtItemCategory").Text = $mPropTable.($mPropSysNames["CategoryName"])
 				$dsWindow.FindName("txtItemLfcState").Text = $mPropTable.($mPropSysNames["State"])
 				$dsWindow.FindName("txtItemLastUpdatedBy").Text = $mPropTable.($mPropSysNames["LastModifiedUserName"])
-				$dsWindow.FindName("txtItemLastUpdatedDate").Text = $mPropTable.($mPropSysNames["ModDate"]).ToString("yyyy/mm/dd hh:mm:ss") #default date time formats
+				$dsWindow.FindName("txtItemLastUpdatedDate").Text = $mPropTable.($mPropSysNames["ModDate"]).ToString() #default date time formats will apply. If format is enforced, you need to relay on formatted data
 
 				#filter the dataset and hand over
 				Foreach($Filt in $mPropFilter)
