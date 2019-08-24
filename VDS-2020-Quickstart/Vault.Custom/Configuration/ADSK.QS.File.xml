@@ -36,4 +36,8 @@
     <DocName>Mechanical Sheet Set Drawing</DocName>
     <Path>$/Templates/Mechanical/Sheet Set Drawing</Path>
   </DocTypeInfo>
+  <DocTypeInfo>
+    <DocName>SolidWorks</DocName>
+    <Path>$/Templates/Solidworks/VDS Templates</Path>
+  </DocTypeInfo>
 </DocTypeData>
