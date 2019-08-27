@@ -55,40 +55,31 @@
   </DynamicPropertiesCategory>
   <DynamicPropertiesCategory Category="Assembly" Type="File">
     <DynamicProperty>Title</DynamicProperty>
-    <DynamicProperty>Material</DynamicProperty>
+    <DynamicProperty>Title DE</DynamicProperty>
+    <DynamicProperty>Description</DynamicProperty>
     <DynamicProperty>Part Number</DynamicProperty>
-    <DynamicProperty>Weight</DynamicProperty>
+    <DynamicProperty>Mass</DynamicProperty>
     <DynamicProperty>Spare-Wear Part</DynamicProperty>
     <DynamicProperty>Dimensions/Size</DynamicProperty>
-    <DynamicProperty>Description 2</DynamicProperty>
-    <DynamicProperty>Description</DynamicProperty>
     <DynamicProperty>Stock Number</DynamicProperty>
-    <DynamicProperty>Length (Cut)</DynamicProperty>
     <DynamicProperty>Semi finished</DynamicProperty>
-    <DynamicProperty>Ident Number</DynamicProperty>
-    <DynamicProperty>Project Number</DynamicProperty>
-    <DynamicProperty>Source File</DynamicProperty>
-    <DynamicProperty>Author</DynamicProperty>
-    <DynamicProperty>Project</DynamicProperty>
-    <DynamicProperty>Mfg Approved By</DynamicProperty>
-    <DynamicProperty>Manager</DynamicProperty>
-    <DynamicProperty>Engr Approved By</DynamicProperty>
-    <DynamicProperty>FDS Key</DynamicProperty>
+    <DynamicProperty>Author</DynamicProperty>  
     <DynamicProperty>Designer</DynamicProperty>
     <DynamicProperty>Engineer</DynamicProperty>
-    <DynamicProperty>Comments</DynamicProperty>
-    <DynamicProperty>Cost</DynamicProperty>
-    <DynamicProperty>Keywords</DynamicProperty>
-    <DynamicProperty>Subject</DynamicProperty>
-    <DynamicProperty>Company</DynamicProperty>
-    <DynamicProperty>Project Type</DynamicProperty>
+    <DynamicProperty>Manager</DynamicProperty>    
+    <DynamicProperty>Project</DynamicProperty>
     <DynamicProperty>Checked By</DynamicProperty>
-    <DynamicProperty>Application Version</DynamicProperty>
-    <DynamicProperty>Mass</DynamicProperty>
-    <DynamicProperty>Sub-Type</DynamicProperty>
-    <DynamicProperty>FLCdmsID</DynamicProperty>
-    <DynamicProperty>FLCwsID</DynamicProperty>
-    <DynamicProperty>Title DE</DynamicProperty>
+    <DynamicProperty>Mfg Approved By</DynamicProperty>
+    <DynamicProperty>Engr Approved By</DynamicProperty>
+    <DynamicProperty>FDS Key</DynamicProperty>
+    <DynamicProperty>Comments</DynamicProperty>
+    <DynamicProperty Hidden="True">Company</DynamicProperty>
+    <DynamicProperty Hidden="True">Project Type</DynamicProperty>
+    <DynamicProperty Hidden="True">Application Version</DynamicProperty>
+    <DynamicProperty>Source File</DynamicProperty>
+    <DynamicProperty Hidden="True">Sub-Type</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCdmsID</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCwsID</DynamicProperty>
   </DynamicPropertiesCategory>
   <DynamicPropertiesCategory Category="Sheet Metal Part" Type="File">
     <DynamicProperty>Title</DynamicProperty>
@@ -482,5 +473,50 @@
     <DynamicProperty>FLC Creator</DynamicProperty>
     <DynamicProperty>FLC Reviewer</DynamicProperty>
     <DynamicProperty>Comments</DynamicProperty>
+  </DynamicPropertiesCategory>
+  <DynamicPropertiesCategory Category="Solidworks Drawing" Type="FILE">
+    <DynamicProperty>Title</DynamicProperty>
+    <DynamicProperty>Designer</DynamicProperty>
+    <DynamicProperty>Checked By</DynamicProperty>
+    <DynamicProperty>Checked Date</DynamicProperty>
+    <DynamicProperty>Engr Approved By</DynamicProperty>
+    <DynamicProperty>Engr Approved Date</DynamicProperty>
+    <DynamicProperty>Format</DynamicProperty>
+    <DynamicProperty>Source File</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCdmsID</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCwsID</DynamicProperty>
+  </DynamicPropertiesCategory>
+  <DynamicPropertiesCategory Category="Solidworks Part" Type="FILE">
+    <DynamicProperty>Title</DynamicProperty>
+    <DynamicProperty>Title DE</DynamicProperty>
+    <DynamicProperty>Description</DynamicProperty>
+    <DynamicProperty>Part Number</DynamicProperty>
+    <DynamicProperty>Material</DynamicProperty>
+    <DynamicProperty>Mass</DynamicProperty>
+    <DynamicProperty Hidden="True">Sub-Type</DynamicProperty>
+    <DynamicProperty>Spare-Wear Part</DynamicProperty>
+    <DynamicProperty>Part Family</DynamicProperty>
+    <DynamicProperty>Semi-finished</DynamicProperty>
+    <DynamicProperty>Stock Number</DynamicProperty>
+    <DynamicProperty>Dimensions/Size</DynamicProperty>
+    <DynamicProperty>Designer</DynamicProperty>
+    <DynamicProperty>Engr Approved By</DynamicProperty>
+    <DynamicProperty>Engr Approved Date</DynamicProperty>
+    <DynamicProperty>Source File</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCdmsID</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCwsID</DynamicProperty> 
+  </DynamicPropertiesCategory>
+  <DynamicPropertiesCategory Category="Solidworks Assembly" Type="FILE">
+    <DynamicProperty>Title</DynamicProperty>
+    <DynamicProperty>Description</DynamicProperty>
+    <DynamicProperty>Part Number</DynamicProperty>
+    <DynamicProperty>Mass</DynamicProperty>
+    <DynamicProperty>Spare-Wear Part</DynamicProperty>
+    <DynamicProperty>Part Family</DynamicProperty>
+    <DynamicProperty>Engr Approved By</DynamicProperty>
+    <DynamicProperty>Engr Approved Date</DynamicProperty>
+    <DynamicProperty>Source File</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCdmsID</DynamicProperty>
+    <DynamicProperty Hidden="True">FLCwsID</DynamicProperty>
   </DynamicPropertiesCategory>
 </DynamicProperties>
