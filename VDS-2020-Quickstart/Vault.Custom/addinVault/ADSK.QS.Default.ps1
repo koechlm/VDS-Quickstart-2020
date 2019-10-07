@@ -128,13 +128,23 @@ function InitializeWindow
 
 			if($dsWindow.FindName("tabClassification")) 
 			{ 
-				$dsWindow.FindName("tabClassification").add_GotFocus({
-					
+				#hide tab for user groups, e.g., group "Trainees", enable for all others
+				$clsDisabled =  $false #replace by e.g., Adsk.GroupMemberOf "Trainees"
+				if($clsDisabled -eq $true) 
+				{
+					$dsWindow.FindName("tabClassification").Visibility = "Collapsed" 
+				}
+				if($clsDisabled -eq $false)
+				{
+					$dsWindow.FindName("tabClassification").Visibility = "Visible"
+					$dsWindow.FindName("tabClassification").add_GotFocus({
 						if(-not $Global:mClsTabInitialized)
 						{
 							mInitializeClassificationTab -ParentType "Dialog" -file $null
 						}
-					}) #add selection changed
+					}) #add_GotFocus
+				}
+				
 			}
 			#endregion Quickstart
 			
