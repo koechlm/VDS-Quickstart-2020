@@ -151,33 +151,32 @@
   <!--Inventor custom iProperties Displaynames for dynamic properties-->
   <UIString ID="Part Type name">Sub-Type</UIString>
   
-  <!--Vault Categories-->
-  <UIString ID="CAT1">Konstruktion</UIString>
-  <UIString ID="CAT2">Büro</UIString>
+  <!--Vault Categories for en-US database-->
+  <UIString ID="CAT1">Engineering</UIString>
+  <UIString ID="CAT2">Office</UIString>
   <UIString ID="CAT3">Standard</UIString>
-  <UIString ID="CAT4">Basis</UIString>
-  <UIString ID="CAT5">Ordner</UIString>
-  <UIString ID="CAT6">Projekt</UIString>
+  <UIString ID="CAT4">Base</UIString>
+  <UIString ID="CAT5">Folder</UIString>
+  <UIString ID="CAT6">Project</UIString>
   <!--Strings used in tooltips-->
   <UIString ID="TLT1">Lokaler Pfad</UIString>
 
-  <!--Quickstart Multilang Strings Start-->
-
+  <!--Quickstart Multilang Strings Start for en-US database-->
   <!--Quickstart Category Names (additional ones not in default)-->
-  <UIString ID="MSDCE_CAT00">Zeichnung Inventor</UIString>
-  <UIString ID="MSDCE_CAT01">Zeichnung AutoCAD</UIString>
-  <UIString ID="MSDCE_CAT02">3D Komponenten</UIString>
+  <UIString ID="MSDCE_CAT00">Drawing Inventor</UIString>
+  <UIString ID="MSDCE_CAT01">Drawing AutoCAD</UIString>
+  <UIString ID="MSDCE_CAT02">3D Component</UIString>
   <!--<UIString ID="MSDCE_CAT03"></UIString>-->
-  <UIString ID="MSDCE_CAT04">Electrical Zeichnung</UIString>
-  <UIString ID="MSDCE_CAT05">Electrical Projekt</UIString>
-  <UIString ID="MSDCE_CAT06">AutoCAD Plansatz</UIString>
-  <UIString ID="MSDCE_CAT07">AutoCAD Plansatz Zeichnung</UIString>
-  <UIString ID="MSDCE_CAT08">Bauteil</UIString>
-  <UIString ID="MSDCE_CAT09">Blechteil</UIString>
-  <UIString ID="MSDCE_CAT10">Baugruppe</UIString>
-  <UIString ID="MSDCE_CAT11">Schweissbaugruppe</UIString>
-  <UIString ID="MSDCE_CAT12">Ersatzkomponente</UIString>
-  <UIString ID="MSDCE_CAT13">Präsentation</UIString>
+  <UIString ID="MSDCE_CAT04">Electrical Drawing</UIString>
+  <UIString ID="MSDCE_CAT05">Electrical Project</UIString>
+  <UIString ID="MSDCE_CAT06">Sheet Set</UIString>
+  <UIString ID="MSDCE_CAT07">Sheet Set Drawing</UIString>
+  <UIString ID="MSDCE_CAT08">Part</UIString>
+  <UIString ID="MSDCE_CAT09">Sheet Metal Part</UIString>
+  <UIString ID="MSDCE_CAT10">Assembly</UIString>
+  <UIString ID="MSDCE_CAT11">Weldment Assembly</UIString>
+  <UIString ID="MSDCE_CAT12">Substitute</UIString>
+  <UIString ID="MSDCE_CAT13">Presentation</UIString>
   <!--Quickstart Category Names-->
 
   <!--Quickstart CAD-BOM-->
@@ -199,11 +198,12 @@
   <UIString ID="MSDCE_TubePipe_01">Rohre und Leitungen</UIString>
   <!--Quickstart Functional Dialogs (FG, DA, TP, CH) end-->
 
-  <!--Quickstart Custom Object Names-->
+  <!--Quickstart Custom Object Names en-US data base-->
   <UIString ID="MSDCE_CO01">Organisation</UIString>
   <UIString ID="MSDCE_CO02">Person</UIString>
-  <UIString ID="MSDCE_CO03">Aufgabe</UIString>
-  <UIString ID="MSDCE_CO04">Versand</UIString>
+  <UIString ID="MSDCE_CO03">Task</UIString>
+  <UIString ID="MSDCE_CO04">Transmittal</UIString>
+  
   <!--Quickstart Custom Object Context Menu Items-->
   <UIString ID="MSDCE_MNU01">Neue Aufgabe...</UIString>
   <UIString ID="MSDCE_MNU02">Neue Aufgabe erstellen</UIString>
