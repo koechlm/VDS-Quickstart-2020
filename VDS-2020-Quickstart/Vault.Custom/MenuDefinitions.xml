@@ -12,6 +12,14 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
 -->
 <mymenu>
   <MenuItem>
+
+    <GoToFlc Label="Go to Fusion Lifcycle" Description="Go to Fusion Lifcycle" Hint="Opens the related Fusion Lifcycle Item in a browser window"
+             PSFile="GoToFusionLifcycle.ps1" Image="favicon-fusion.ico" ToolbarPaintStyle="TextAndGlyph"
+             MultiSelectEnabled="False" />
+    <LinkFlc Label="Link Fusion Lifcycle Item" Description="Link Fusion Lifcycle Item" Hint="Creates a link to an existing Fusion Lifcycle Item"
+                 PSFile="LinkFusionLifcycle.ps1" Image="favicon-fusion.ico" ToolbarPaintStyle="TextAndGlyph"
+                 MultiSelectEnabled="False" />
+    
     <!--ADSK-File Property Provider-->
     <ADSKFileProp Label = "$UIString[ADSKFile-MetaReader-00]" Description = "$UIString[ADSKFile-MetaReader-01]" Hint = "$UIString[ADSKFile-MetaReader-02]"
       PSFile = "ADSK.QS.AdskFilePropProvider.ps1" Image="ADSKMetaImport.ico" ToolbarPaintStyle = "TextAndGlyph"
@@ -126,6 +134,8 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       <Item Name="GoToSourceFile"></Item>
       <Item Name="GoToSelectedFile"></Item>
       <Item Name="GoToInvSibling"></Item>
+      <Item Name="GoToFlc"></Item>
+      <Item Name="LinkFlc"></Item>
     </FileContext>
     <FileContext Label="Navigation" DeployAsPullDown="True" Location="StandardToolbar">
       <Item Name="GoToReplacedBy"></Item>
@@ -134,6 +144,8 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       <Item Name="GoToInvSibling"></Item>
       <Item Name ="GoToSelectedTask"></Item>
       <Item Name="GoToLinkedEco"></Item>
+      <Item Name="GoToFlc"></Item>
+      <Item Name="LinkFlc"></Item>
     </FileContext>
     <FileContext Label="myMenu" DeployAsPullDown="False" Location="FileContextMenu">
       <Item Name="NewFile"></Item>
@@ -146,6 +158,8 @@ MultiSelectEnabled: If true, command is active for multiple selections, can be t
       <Item Name="NewFolder"></Item>
       <Item Name="EditFolder"></Item>
       <Item Name="FileImport"></Item>
+      <Item Name="GoToFlc"></Item>
+      <Item Name="LinkFlc"></Item>
     </FolderContex>
     <StandardToolbar Label="myMenu" DeployAsPullDown="False" Location="StandardToolbar">
       <Item Name="NewFile"></Item>
