@@ -44,6 +44,7 @@
   <PropertyTranslation Name="FIRSTNAME">First Name</PropertyTranslation>
   <PropertyTranslation Name="LASTNAME">Last Name</PropertyTranslation>
   <PropertyTranslation Name="CONTACTNAME">Contact Person</PropertyTranslation>
+  <PropertyTranslation Name="REVISION">Revision</PropertyTranslation>
   <!--Quickstart 2019 end-->
 
   <!--Quickstart Extensions start-->
