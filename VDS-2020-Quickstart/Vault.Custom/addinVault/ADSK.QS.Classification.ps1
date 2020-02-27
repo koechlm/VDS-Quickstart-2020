@@ -1,4 +1,3 @@
-
 #region disclaimer =============================================================================
 # PowerShell script sample for Vault Data Standard
 #			 Autodesk Vault - Quickstart 2019
@@ -12,6 +11,11 @@
 #endregion =============================================================================
 
 #region - version history
+# Version Info - VDS Quickstart Classification 2020.0.0
+	# Support default values for classes on AddClassification()
+	# Use Case _CreateMode removed: an existing file is required to add class properties
+	# code maintenance
+
 # Version Info - VDS Quickstart Classification 2019.1.1
 	# initial version
 
@@ -39,7 +43,7 @@ function mInitializeClassificationTab($ParentType, $file)
 		#configuration info - the custom object names used for the classification structure may vary. Align Custent names of your Vault in UIStrings ADSK.WS.ClassLEver_*
 		$mClsLevelNames = ($UIString["Adsk.QS.ClassLevel_00"], $UIString["Adsk.QS.ClassLevel_01"], $UIString["Adsk.QS.ClassLevel_02"],$UIString["Adsk.QS.ClassLevel_03"])
 		$Global:mClassLevelCustentDefIds = ($Global:mCustentDefs | Where-Object { $_.DispName -in $mClsLevelNames}).Id
-		$Global:AddingClassification = $false
+		#$Global:AddingClassification = $false
 		$Global:mClsTabInitialized = $true
 	}
 
@@ -100,71 +104,6 @@ function mInitializeClassificationTab($ParentType, $file)
 	}
 
 	mGetFileClsValues
-
-	<# #the file is classified if the property _XLTN_CLASS exists and a custom object equally named is found.
-	if( (mSearchCustentOfCat($UIString["Adsk.QS.Classification_00"]))) #$Prop["_XLTN_CLASS"].Value.Length -gt 0 -and
-	{
-		$dsDiag.Trace("  1: classification is available")
-		$mActiveClass = @()
-		$mActiveClass += mGetCustentiesByName -Name $Prop["_XLTN_CLASS"].Value #custom object names are not unique, only its Number
-		if($mActiveClass.Count -eq 1)
-		{
-			#region get Property Ids and Displaynames for this class
-			$dsDiag.Trace("  1.1: classification read from class property")
-			$mClsPrpNames = mGetClsPrpNames -ClassId $mActiveClass[0].Id
-			$mClsPrpValues = mGetClsPrpValues -ClassId $mActiveClass[0].Id
-			$mClsPropTable = @{}
-			$mClsLevelProps = ($UIString["Adsk.QS.ClassLevel_00"], $UIString["Adsk.QS.ClassLevel_01"], $UIString["Adsk.QS.ClassLevel_02"],$UIString["Adsk.QS.ClassLevel_03"] ,$UIString["Adsk.QS.Classification_00"])
-
-			if($Global:AddingClassification -eq $true)
-			{
-				foreach($mClsProp in $mClsPrpNames.GetEnumerator())
-				{
-					#filter the all classification level properties but add all class' properties
-					if($mClsPrpNames[$mClsProp.Key] -notin $mClsLevelProps) { $mClsPropTable.Add($mClsPrpNames[$mClsProp.Key], $mClsPrpValues[$mClsProp.Key])}
-				}
-			}
-			#if($Prop["_EditMode"].Value -eq $true)
-			if($Global:AddingClassification -eq $false)
-			{
-				#get the file's class property values	 edit mode
-				$mFileClassProps = $vault.PropertyService.GetProperties("FILE", @($mFile.Id), $mClsPrpNames.Keys)
-				Foreach($mClsProp in $mClsPrpNames.GetEnumerator())
-				{
-					#filter the classification property, add all others
-					if($mClsPrpNames[$mClsProp.Key] -notin $mClsLevelProps)
-						{
-							$mClsPropTable.Add($mClsPrpNames[$mClsProp.Key], (($mFileClassProps | Where-Object { $_.PropDefId -eq ($mClsProp.Key)}).Val))
-						}
-				}
-			} #edit mode
-		} # single class for given name found
-		else
-		{
-			if ($Global:AddingClassification -eq $true)
-			{
-				$mActiveClass = @()
-				$mActiveClass += mGetCustentiesByName -Name $dsWindow.FindName("cmbAvailableClasses").SelectedValue
-				$dsDiag.Trace("  1.2: active class: " + '$mActiveClass' + "read from class property")
-				$mClsPrpNames = mGetClsPrpNames -ClassId $mActiveClass[0].Id
-				$mClsPrpValues = mGetClsPrpValues -ClassId $mActiveClass[0].Id
-				$mClsPropTable = @{}
-				$mClsLevelProps = ($UIString["Adsk.QS.ClassLevel_00"], $UIString["Adsk.QS.ClassLevel_01"], $UIString["Adsk.QS.ClassLevel_02"],$UIString["Adsk.QS.ClassLevel_03"] ,$UIString["Adsk.QS.Classification_00"])
-
-				if($mActiveClass.Count -eq 1)
-				{
-					Foreach($mClsProp in $mClsPrpNames.GetEnumerator())
-					{
-						#filter the all classification level properties but add all class' properties
-						if($mClsPrpNames[$mClsProp.Key] -notin $mClsLevelProps) { $mClsPropTable.Add($mClsPrpNames[$mClsProp.Key], $mClsPrpValues[$mClsProp.Key])}
-					}
-				}
-			}
-		}
-
-		$dsWindow.FindName("dtgrdClassProps").ItemsSource = $mClsPropTable
-
-	} #custom object workspace classes available #>
 
 	$dsDiag.Trace("...Initialize Classification Tab ended.")
 }
@@ -238,35 +177,33 @@ function mGetClsDfltValues
 
 function mGetClsPrpNames($ClassId) #get Properties added to this class
 {
-	$mClsPropInsts = @()
-	$mClsPropInsts += $vault.PropertyService.GetPropertiesByEntityIds("CUSTENT", @($ClassId))
-	$mClassPropList = @{}
+	$global:mClsPropInsts = @()
+	$global:mClsPropInsts += $vault.PropertyService.GetPropertiesByEntityIds("CUSTENT", @($ClassId))
+	$mClsPropNames = @{}
 	ForEach($mPropInst in $mClsPropInsts)
 	{
 		#add UDPs of the Custom Object "Class" only
 		If($Global:mCustentUdpDefs | Where-Object { $_.Id -eq $mPropInst.PropDefId })
 		{
 			$mDispName = ($Global:mCustentUdpDefs | Where-Object { $_.Id -eq $mPropInst.PropDefId }).DispName
-			$mClassPropList.Add($mPropInst.PropDefId, $mDispName)
+			$mClsPropNames.Add($mPropInst.PropDefId, $mDispName)
 		}
 	}
-	return $mClassPropList
+	return $mClsPropNames
 }
 
 function mGetClsPrpValues($ClassId) #get Properties added to this class
 {
-	$mClsPropInsts = @()
-	$mClsPropInsts += $vault.PropertyService.GetPropertiesByEntityIds("CUSTENT", @($ClassId))
-	$mClassPropList = @{}
-	ForEach($mPropInst in $mClsPropInsts)
+	$mClsPropValues = @{}
+	ForEach($mPropInst in $global:mClsPropInsts)
 	{
 		#add UDPs of the Custom Object "Class" only
 		If($Global:mCustentUdpDefs | Where-Object { $_.Id -eq $mPropInst.PropDefId })
 		{
-			$mClassPropList.Add($mPropInst.PropDefId, $mPropInst.Val)
+			$mClsPropValues.Add($mPropInst.PropDefId, $mPropInst.Val)
 		}
 	}
-	return $mClassPropList
+	return $mClsPropValues
 }
 
 
@@ -326,7 +263,7 @@ function mAddClassification()
 {
 	$dsDiag.Trace("AddClassification starts...")
 
-	$Global:AddingClassification = $true
+	#$Global:AddingClassification = $true
 
 	if ($Global:mFile)
 	{
@@ -346,17 +283,18 @@ function mAddClassification()
 		$mPropsRemove = @()
 		$mAddRemoveComment = "Added classification"
 		$mFileUpdated = $vault.DocumentService.UpdateFilePropertyDefinitions(@($Global:mFile.MasterId), $mPropsAdd, $mPropsRemove, $mAddRemoveComment)
+		if ($null -eq $mFileUpdated) {
+			$dsDiag.Trace("AddClassification Error on UpdateFilePropertyDefinitions")
+		}
 	}
 	$Prop["_XLTN_CLASS"].Value = $dsWindow.FindName("cmbAvailableClasses").SelectedValue
 	$dsWindow.FindName("btnRemoveClass").IsEnabled = $true
 	$dsWindow.FindName("btnAddClass").IsEnabled = $false
-	#mInitializeClassificationTab -ParentType "Dialog" -file $Global:mFile
 
 	mGetClsDfltValues
 	
 	mResetClassSelection
 
-	$Global:AddingClassification = $false
 	$dsDiag.Trace("...AddClassification finished.")
 }
 
@@ -386,6 +324,9 @@ function mRemoveClassification()
 
 			$mAddRemoveComment = "removed classification"
 			$mFileUpdated = $vault.DocumentService.UpdateFilePropertyDefinitions(@($Global:mFile.MasterId), $mPropsAdd, $mPropsRemove, $mAddRemoveComment)
+			if ($null -eq $mFileUpdated) {
+				$dsDiag.Trace("Removelassification Error on UpdateFilePropertyDefinitions")
+			}
 		}
 	}
 	#reset the classification
@@ -395,7 +336,7 @@ function mRemoveClassification()
 
 	$dsWindow.FindName("btnRemoveClass").IsEnabled = $false
 	if($dsWindow.FindName("cmbAvailableClasses").SelectedIndex -ne -1) { $dsWindow.FindName("btnAddClass").IsEnabled = $true}
-	$dsDiag.Trace("...remove classification finished result=$($mFileUpdated)")
+	$dsDiag.Trace("...remove classification finished.")
 }
 
 
