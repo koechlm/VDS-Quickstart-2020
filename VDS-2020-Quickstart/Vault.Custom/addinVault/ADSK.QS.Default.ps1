@@ -134,7 +134,7 @@ function InitializeWindow
 				{
 					$dsWindow.FindName("tabClassification").Visibility = "Collapsed" 
 				}
-				if($clsDisabled -eq $false)
+				if($clsDisabled -eq $false -and $Prop["_EditMode"].Value -eq $true)
 				{
 					$dsWindow.FindName("tabClassification").Visibility = "Visible"
 					$dsWindow.FindName("tabClassification").add_GotFocus({
@@ -143,6 +143,9 @@ function InitializeWindow
 							mInitializeClassificationTab -ParentType "Dialog" -file $null
 						}
 					}) #add_GotFocus
+				}
+				else {
+					$dsWindow.FindName("tabClassification").Visibility = "Collapsed" 
 				}
 				
 			}
