@@ -44,6 +44,10 @@
   <PropertyTranslation Name="FIRSTNAME">Vorname</PropertyTranslation>
   <PropertyTranslation Name="LASTNAME">Nachname</PropertyTranslation>
   <!--Quickstart 2018 end-->
+
+  <!--Quickstart 2020.25.1.2-->
+  <PropertyTranslation Name="THUMBNAIL">Miniaturansicht</PropertyTranslation>
+  <!--Quickstart 2020.25.1.2-->
   
 </PropertyTranslations>
 

@@ -130,7 +130,7 @@
             <Border Grid.Row="9" Grid.ColumnSpan="2" BorderBrush="#FFABADB3" BorderThickness="1" Visibility="{Binding IsLoaded, ElementName=image, Mode=OneWay}" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
                    >
                 <Image x:Name="image"
-                    Source="{Binding Prop[Thumbnail].Value}" Stretch="UniformToFill"/>
+                    Source="{Binding Prop[_XLTN_THUMBNAIL].Value}" Stretch="UniformToFill"/>
             </Border>
         </Grid>
         <Grid Grid.Column="1" Margin="5,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">

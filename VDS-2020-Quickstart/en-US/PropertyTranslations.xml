@@ -46,6 +46,10 @@
   <PropertyTranslation Name="CONTACTNAME">Contact Person</PropertyTranslation>
   <!--Quickstart 2019 end-->
 
+  <!--Quickstart 2020.25.1.2-->
+  <PropertyTranslation Name="THUMBNAIL">Thumbnail</PropertyTranslation>
+  <!--Quickstart 2020.25.1.2-->
+
 
 </PropertyTranslations>
 
