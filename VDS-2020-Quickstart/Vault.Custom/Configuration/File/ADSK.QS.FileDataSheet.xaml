@@ -171,28 +171,38 @@
                 <RowDefinition Height="21"/>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="12.116" />
+                <RowDefinition Height="11.884"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="120" />
-                <ColumnDefinition MinWidth="140" MaxWidth="140" />
+                <ColumnDefinition MinWidth="140" />
             </Grid.ColumnDefinitions>
+            <Label Content="{Binding UIString[LBL73], FallbackValue=System Properties}" Height="Auto" BorderThickness="0"/>
             <Label Content="{Binding UIString[LBL8], FallbackValue=Category}" Grid.Column="0" Grid.Row="1" />
             <TextBox Text="{Binding Prop[_XLTN_CATEGORY NAME].Value}" x:Name="Cat" Grid.Column="1" Grid.Row="1" />
             <Label Content="{Binding UIString[LBL19], FallbackValue=Name}" Grid.Column="0" Grid.Row="2" />
             <TextBox Text="{Binding Prop[_XLTN_NAME].Value}" Grid.Column="1" Grid.Row="2" />
-            <Label Content="{Binding UIString[LBL4], FallbackValue=State}" Grid.Column="0" Grid.Row="3" />
-            <TextBox Text="{Binding Prop[_XLTN_STATE].Value}" Grid.Column="1" Grid.Row="3" />
-            <Label Content="{Binding UIString[LBL33], FallbackValue=Date Created}" Grid.Column="0" Grid.Row="4" />
-            <TextBox Text="{Binding Prop[_XLTN_DATE VERSION CREATED].Value}" Grid.Column="1" Grid.Row="4" />
-            <Label Content="{Binding UIString[LBL34], FallbackValue=Created By}" Grid.Column="0" Grid.Row="5"  />
-            <TextBox Text="{Binding Prop[_XLTN_CREATED BY].Value}" Grid.Column="1" Grid.Row="5"  />
-            <Label x:Name="lblComments" Content="{Binding UIString[LBL7], FallbackValue=Comments}" Grid.Row="6" Height="Auto" BorderThickness="1" />
-            <TextBox Grid.Row="6" Text="{Binding Prop[_XLTN_COMMENTS].Value}" x:Name="Comments" Grid.Column="1" VerticalScrollBarVisibility="Auto" MinHeight="50" MaxHeight="60" TextWrapping="Wrap" AcceptsReturn="True" Padding="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Height="Auto" BorderThickness="0,1,1,1" />
-            <Label Content="{Binding UIString[LBL73], FallbackValue=System Properties}" Height="Auto" BorderThickness="0"/>
+            <Label Content="{Binding UIString[LBL4], FallbackValue=State}" Grid.Column="0" Grid.Row="4" />
+            <TextBox Text="{Binding Prop[_XLTN_STATE].Value}" Grid.Column="1" Grid.Row="4" />
+            <Label Content="{Binding UIString[LBL33], FallbackValue=Date Created}" Grid.Column="0" Grid.Row="5" />
+            <TextBox Text="{Binding Prop[_XLTN_DATE VERSION CREATED].Value}" Grid.Column="1" Grid.Row="5" />
+            <Label Content="{Binding UIString[LBL34], FallbackValue=Created By}" Grid.Column="0" Grid.Row="6" Grid.RowSpan="2"  />
+            <TextBox Text="{Binding Prop[_XLTN_CREATED BY].Value}" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2"  />
+            <Label x:Name="lblComments" Content="{Binding UIString[LBL7], FallbackValue=Comments}" Grid.Row="8" Height="Auto" BorderThickness="1" />
+            <TextBox Grid.Row="8" Text="{Binding Prop[_XLTN_COMMENTS].Value}" x:Name="Comments" Grid.Column="1" VerticalScrollBarVisibility="Auto" MinHeight="50" MaxHeight="60" TextWrapping="Wrap" AcceptsReturn="True" Padding="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" Height="Auto" BorderThickness="0,1,1,1" />
+            <TextBox Grid.Column="1" Height="Auto" Grid.Row="3" Text="{Binding Prop[_XLTN_REVISION].Value}"/>
+            <Label Content="{Binding UIString[LBL12], FallbackValue=Revision}" Grid.Row="3" Height="Auto"/>
+            <Border Grid.Row="9" Grid.ColumnSpan="2" BorderBrush="#FFABADB3" BorderThickness="1" Visibility="{Binding IsLoaded, ElementName=image, Mode=OneWay}" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                   >
+                <Image x:Name="image"
+                    Source="{Binding Prop[Thumbnail].Value}" Stretch="UniformToFill"/>
+            </Border>
         </Grid>
         <Grid Grid.Column="1" Margin="5,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
             <Grid.RowDefinitions>
