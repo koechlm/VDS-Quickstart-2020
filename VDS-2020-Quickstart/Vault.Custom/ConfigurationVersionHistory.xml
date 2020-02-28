@@ -1,48 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configuration>
   <ConfigInfo>
-    <ConfigHistoryInfo Name="Master" Version="2019.1.1">
+    <ConfigHistoryInfo Branch="Master" Version="2020.25.1.2" Commit="a0c6988f ">
       <Changes>
-        <!--Vault OnLogOff message added to prevent user switching Vaults-->
-        <!--updated version ADSK.QS.CAD.Library 2019.1.1-->
-        <!--updated version ADSK.QS.VLT.Library 2019.1.1-->
-        <!--updated PropertyTranslations.xml for de-DE and en-US-->
+        <!--see branch history-->
       </Changes>
-    </ConfigHistoryInfo>
-  </ConfigInfo>
-  <ConfigInfo Name="Master" Version="Master2019.1.0">
-    <ConfigHistoryInfo>
-      <Changes>
-        <!--Configuration requires Vault 2019.1 as a minimum. A new check on LogOn validates this prerequisite.-->
-        <!--Removed CAD.Custom\addins\ADSK.QS.FileNameValidation.ps1 as all enhancements got default configuration in CAD\addins\FileNameValidation.ps1-->
-        <!--Added Message VAL14 to de-DE and en-US UIString tables-->
-        <!--DSLanguages no longer preset for en-US only-->
-      </Changes>
-      <Fixes>
-        <!--Inspector removed from OnTabContextChanged-->
-      </Fixes>
-    </ConfigHistoryInfo>
-  </ConfigInfo>
-  <ConfigInfo Name="VDS Quickstart OTX 2019 Sample Configuration" Version="OTX2019Config.2">
-    <ConfigHistoryInfo>
-      <Changes>
-        <!--Script Library QuickstartExtension.ps1 renamed to ADSK.QS.VLT.Library.ps1-->
-        <!--Script Library ADSK.QS.CAD.Library.ps1 added for common functions to be used in CAD apps-->
-        <!--Updated AutoCAD configuration according new Help Documentation "AutoCAD VDS Property Mapping"-->
-        <!--Corrected ValidateFolder to run in CreateMode only-->
-        <!--Added UIString table for de-DE-->
-      </Changes>
-      <Fixes>
-      </Fixes>
-    </ConfigHistoryInfo>
-  </ConfigInfo>
-
-  <ConfigInfo Name="VDS Quickstart OTX 2019 Sample Configuration" Version="OTX2019Config.1">
-    <ConfigHistoryInfo>
-      <Fixes>
-        <!--InitialCopyValue removed from Inventor.cfg; 2019 solved OriginalFileName issue for drawings and hands over model copy name-->
-        <!--updated _FileExt selections to ".IDW" or ".DWG" or ".IPN" (2019 requires . being included-->
-      </Fixes>
     </ConfigHistoryInfo>
   </ConfigInfo>
 </Configuration>
