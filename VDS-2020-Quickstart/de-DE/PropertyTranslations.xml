@@ -17,7 +17,7 @@
   <PropertyTranslation Name="CREATED BY">Erstellt von</PropertyTranslation>
   <PropertyTranslation Name="DATE VERSION CREATED">Version erstellt </PropertyTranslation>
 
-  <!--Quickstart 2018-->
+  <!--Quickstart 2019-->
   <PropertyTranslation Name="SUBJECT">Thema</PropertyTranslation>
   <PropertyTranslation Name="AUTHOR">Verfasser</PropertyTranslation>
   <PropertyTranslation Name="PARTNUMBER">Teilenummer</PropertyTranslation>
@@ -43,7 +43,13 @@
   <PropertyTranslation Name="EMAILATTACHM">Email Anhang</PropertyTranslation>
   <PropertyTranslation Name="FIRSTNAME">Vorname</PropertyTranslation>
   <PropertyTranslation Name="LASTNAME">Nachname</PropertyTranslation>
-  <!--Quickstart 2018 end-->
+  <PropertyTranslation Name="CONTACTNAME">Kontakt Person</PropertyTranslation>
+  <!--Quickstart 2019 end-->
+
+  <!--Quickstart 2020.25.1.2-->
+  <PropertyTranslation Name="THUMBNAIL">Miniaturansicht</PropertyTranslation>
+  <PropertyTranslation Name="REVISION">Revision</PropertyTranslation>
+  <!--Quickstart 2020.25.1.2-->
 
   <!--Quickstart Extension Organisation-Person-Link start-->
   <PropertyTranslation Name ="ORGANISATION">Organisation</PropertyTranslation>
